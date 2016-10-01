@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @guest.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @guest.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @guest.email %>
+</p>
+
+<p>
+  <strong>Street address:</strong>
+  <%= @guest.street_address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @guest.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @guest.state %>
+</p>
+
+<p>
+  <strong>Zip code:</strong>
+  <%= @guest.zip_code %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @guest.country %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @guest.phone_number %>
+</p>
+
+<p>
+  <strong>Confirmed?</strong>
+  <%= @guest.confirmed? %>
+</p>
+<p>
+  <strong>Save the Date Sent?</strong>
+  <%= @guest.std_sent? %>
+</p>
+<p>
+  <strong>Invitation Sent?</strong>
+  <%= @guest.invite_sent? %>
+</p>
+<p>
+  <strong>Is a Child?</strong>
+  <%= @guest.is_child? %>
+</p>
+
+<%= link_to 'Edit', edit_guest_path(@guest) %> |
+<%= link_to 'Back', guests_path %>

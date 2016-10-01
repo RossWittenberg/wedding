@@ -1,0 +1,23 @@
+<%= simple_form_for(@guest) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :email %>
+    <%= f.input :street_address %>
+    <%= f.input :city %>
+    <%= f.input :state %>
+    <%= f.input :zip_code %>
+    <%= f.input :country %>
+    <%= f.input :phone_number %>
+    <%= f.input :confirmed? %>
+    <%= f.input :std_sent? %>
+    <%= f.input :invite_sent? %>
+    <%= f.input :is_child? %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
