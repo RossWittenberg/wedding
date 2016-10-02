@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160717175506) do
+ActiveRecord::Schema.define(version: 20161001165911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,21 +19,30 @@ ActiveRecord::Schema.define(version: 20160717175506) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.string   "street_address"
+    t.string   "street_address_line_1"
+    t.string   "street_address_line_2"
     t.string   "city"
     t.string   "state"
     t.string   "zip_code"
     t.string   "country"
     t.string   "phone_number"
-    t.boolean  "confirmed"
-    t.boolean  "std_sent"
+    t.boolean  "attending"
     t.boolean  "invite_sent"
     t.boolean  "is_child"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "flight_number"
+    t.datetime "arrival"
+    t.datetime "departure"
+    t.integer  "party_id"
+    t.string   "party_name"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "parties", force: :cascade do |t|
+    t.string "party_name"
+    t.string "accomodation_name"
+    t.string "accomodation_address"
+    t.text   "notes"
   end
 
 end

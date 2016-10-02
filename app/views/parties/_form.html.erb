@@ -1,0 +1,14 @@
+<%= simple_form_for(@party) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :party_name %>
+    <%= f.input :accomodation_name %>
+    <%= f.input :accomodation_address %>
+    <%= f.input :notes %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

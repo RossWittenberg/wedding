@@ -4,10 +4,21 @@ class GuestsController < ApplicationController
   # GET /guests
   # GET /guests.json
   def index
-    @guests = Guest.all
-    @yesses = @guests.where(confirmed: true)
-    @nos = @guests.where(confirmed: false)
-    @pendings = @guests.where(confirmed: nil)
+    @guests = Guest.all.order(:party_name)
+    @angolans = Guest.where(country: "AO")
+    @americans = Guest.where(country: "US")
+    @portuguese = Guest.where(country: "PT")
+    @spanish = Guest.where(country: "ES")
+    @danish = Guest.where(country: "DK")
+    @australians = Guest.where(country: "AU")
+    @belgians = Guest.where(country: "BE")
+    @italians = Guest.where(country: "IT")
+    @kids = Guest.where(is_child: true)
+
+
+    @yesses = @guests.where(attending: true)
+    @nos = @guests.where(attending: false)
+    @pendings = @guests.where(attending: nil)
   end
 
   # GET /guests/1
@@ -72,6 +83,6 @@ class GuestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def guest_params
-      params.require(:guest).permit(:first_name, :last_name, :email, :street_address, :city, :state, :zip_code, :country, :phone_number, :status, :std_sent, :invite_sent)
+      params.require(:guest).permit!
     end
 end

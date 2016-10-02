@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+Total Parties Invited: <%= @parties.count %>
+
+<h1>Listing Parties</h1>
+
+<div class="parties__wrapper">
+  <table class="width-100">
+    <thead>
+      <tr>
+        <th class="upcase">Party Name</th>
+        <!-- <th class="upcase">Accomodation Name</th>
+        <th class="upcase">Accomodation Address</th>
+        <th class="upcase">Notes</th> -->
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @parties.each do |party| %>
+          <td><%= party.party_name %></td>
+          <td><%= link_to 'Party Details', party %></td>
+          <td><%= link_to 'Edit', edit_party_path(party) %></td>
+          <td><%= link_to 'Remove', party, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>  
+<br>
+
+<%= link_to 'New Party', new_party_path %>

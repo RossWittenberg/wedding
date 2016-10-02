@@ -6,6 +6,21 @@
 	width: 100%;
 } 
 
-.guests__wrapper {
-	// border: 1px solid red; 
+.green__text td {
+	border: solid 1px black;
+	background-color: green;
+}
+
+.yellow__text td{
+	border: solid 1px black;
+	background-color: papayawhip;
+}
+
+.red__text td {
+	border: solid 1px black;
+	background-color: red;
+}
+
+.kid td {
+	color: cyan;
 }

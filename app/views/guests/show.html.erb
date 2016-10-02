@@ -1,66 +1,105 @@
-<p id="notice"><%= notice %></p>
+<p id="notice">
+	<%= notice %>
+</p>
+<h4>
+	Guest Details
+</h4>
+<label>
+	Name:
+</label>
+<%= @guest.first_name %> <%= @guest.last_name %> 
+<br>
+<label>
+	Email:
+</label>
+<%= @guest.email %>
+<br>
+<label>
+	Address Line 1:
+</label>
+<%= @guest.street_address_line_1 %>
+<br>
+<label>
+	Address Line 2:
+</label>
+<%= @guest.street_address_line_2 %>
+<br>
+<label>
+	City:
+</label>
+<%= @guest.city %>
+<br>
+<label>
+	State:
+</label>
+<%= @guest.state %>
+<br>
+<label>
+	Zip Code:
+</label>
+<%= @guest.zip_code %>
+<br>
+<label>
+	Country:
+</label>
+<%= @guest.country %>
+<br>
+<label>
+	Phone Number:
+</label>
+<%= @guest.phone_number %>
+<br>
+<label>
+	Attending?
+</label>
+<%= @guest.attending %>
+<br>
+<label>
+	Invitation sent?
+</label>
+<%= @guest.invite_sent %>
+<br>
+<label>
+	Is a child?
+</label>
+<%= @guest.is_child %>
+<br>
+<label>
+	Flight #:
+</label>
+<%= @guest.flight_number %>
+<br>
+<label>
+	Arrival Date
+</label>
+<%= @guest.arrival %>
+<br>
+<label>
+	Departure Date
+</label>
+<%= @guest.departure %>
+<br>
+<label>
+	Party name:
+</label>
+<%= @guest.party.party_name %>
+<br>
+<label>
+	Acoomodation Name:
+</label>
+<%= @guest.party.accomodation_name.blank? ? "n/a" : @guest.party.accomodation_name  %>
+<br>
+<label>
+	Acoomodation Address:
+</label>
+<%= @guest.party.accomodation_address.blank? ? "n/a" : @guest.party.accomodation_address  %>
+<br>
+<label>
+	Notes:
+</label>
 
-<p>
-  <strong>First name:</strong>
-  <%= @guest.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @guest.last_name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @guest.email %>
-</p>
-
-<p>
-  <strong>Street address:</strong>
-  <%= @guest.street_address %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @guest.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @guest.state %>
-</p>
-
-<p>
-  <strong>Zip code:</strong>
-  <%= @guest.zip_code %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @guest.country %>
-</p>
-
-<p>
-  <strong>Phone number:</strong>
-  <%= @guest.phone_number %>
-</p>
-
-<p>
-  <strong>Confirmed?</strong>
-  <%= @guest.confirmed? %>
-</p>
-<p>
-  <strong>Save the Date Sent?</strong>
-  <%= @guest.std_sent? %>
-</p>
-<p>
-  <strong>Invitation Sent?</strong>
-  <%= @guest.invite_sent? %>
-</p>
-<p>
-  <strong>Is a Child?</strong>
-  <%= @guest.is_child? %>
-</p>
+<br>
+<%= @guest.party.notes.blank? ? "n/a" : @guest.party.notes %>
 
 <%= link_to 'Edit', edit_guest_path(@guest) %> |
 <%= link_to 'Back', guests_path %>

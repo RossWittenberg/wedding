@@ -1,0 +1,8 @@
+<h1>Editing Party</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @party %> |
+<%= link_to 'Back', parties_path %> |
+<%= link_to 'Remove', @party, method: :delete, data: { confirm: 'Are you sure?' } %>
+
