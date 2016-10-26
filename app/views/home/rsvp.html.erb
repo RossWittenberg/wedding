@@ -1,6 +1,10 @@
 <% if @party %>
 	Hi
-	<% @party.guests.each_with_index do |guest, i| %>
-		<%= guest.first_name %>, 
+	<% guests = @party.guests.select { |guest| guest.is_child? == false }  %>
+	<% guests.each_with_index do |guest, i| %>
+		<%= guest.first_name %> 
+		<%- if i == 0 %> 
+			&amp; 
+		<%- end %>
 	<% end %>
 <% end %>	

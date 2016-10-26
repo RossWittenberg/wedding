@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+	layout "rsvp", :except => [:index]
 
 	def index
 		

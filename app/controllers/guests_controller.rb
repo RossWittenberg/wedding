@@ -1,10 +1,12 @@
 class GuestsController < ApplicationController
   before_action :set_guest, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /guests
   # GET /guests.json
   def index
-    @guests = Guest.all.order(:country, :party_name)
+    # @guests = Guest.all.order(:country, :party_name)
+    @guests = Guest.order(sort_column + ' ' + sort_direction)
     @angolans = Guest.where(country: "AO")
     @americans = Guest.where(country: "US")
     @portuguese = Guest.where(country: "PT")
@@ -75,6 +77,18 @@ class GuestsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def sort_column
+      params[:sort] || "last_name"
+    end
+    
+    def sort_direction
+      params[:direction] || "asc"
+    end
+
+    def sort_requests_column
+      params[:sort] || "start_date"
+    end
+    
     def set_guest
       @guest = Guest.find(params[:id])
     end
