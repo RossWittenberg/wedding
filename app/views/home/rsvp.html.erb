@@ -1,0 +1,6 @@
+<% if @party %>
+	Hi
+	<% @party.guests.each_with_index do |guest, i| %>
+		<%= guest.first_name %>, 
+	<% end %>
+<% end %>	

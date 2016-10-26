@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-Total number of invitees`: <%= @guests.count %><br>
+Total number of invitees: <%= @guests.count %><br>
 
 <% unless @yesses.blank? %>  
   Total number of invitees who will not be attending: <%= @yesses.count %><br>
@@ -27,10 +27,12 @@ Total number of kids coming: <%= @kids.count %><br>
   <table class="width-100">
     <thead>
       <tr>
+        <th class="upcase"></th>
         <th class="upcase">First name</th>
         <th class="upcase">Last name</th>
         <th class="upcase">Email</th>
         <th class="upcase">Party</th>
+        <th class="upcase">Country</th>
 
         <!-- <th class="upcase">Street address</th>
         <th class="upcase">City</th>
@@ -46,12 +48,14 @@ Total number of kids coming: <%= @kids.count %><br>
     </thead>
 
     <tbody>
-      <% @guests.each do |guest| %>
+      <% @guests.each_with_index do |guest, i| %>
         <tr class="<% if guest.attending? %> green__text <% elsif guest.attending == nil %> yellow__text <% else %> red__text <% end %> <% if guest.is_child? %> kid <% end %>">
+          <td><%= i + 1 %></td>
           <td><%= guest.first_name %></td>
           <td><%= guest.last_name %></td>
           <td><%= guest.email %></td>
           <td><%= guest.party.party_name %></td>
+          <td><%= guest.country %></td>
 
          <!--  <td><%= guest.street_address_line_1 %></td>
           <td><%= guest.street_address_line_2 %></td>

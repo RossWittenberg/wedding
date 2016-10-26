@@ -4,7 +4,7 @@ class GuestsController < ApplicationController
   # GET /guests
   # GET /guests.json
   def index
-    @guests = Guest.all.order(:party_name)
+    @guests = Guest.all.order(:country, :party_name)
     @angolans = Guest.where(country: "AO")
     @americans = Guest.where(country: "US")
     @portuguese = Guest.where(country: "PT")
@@ -14,8 +14,6 @@ class GuestsController < ApplicationController
     @belgians = Guest.where(country: "BE")
     @italians = Guest.where(country: "IT")
     @kids = Guest.where(is_child: true)
-
-
     @yesses = @guests.where(attending: true)
     @nos = @guests.where(attending: false)
     @pendings = @guests.where(attending: nil)

@@ -1,7 +1,12 @@
 class HomeController < ApplicationController
 
 	def index
-		@guests = Guest.all
+		
 	end
 
+	def rsvp
+		if params[:party_id]
+			@party = Party.find(params[:party_id])
+		end
+	end
 end

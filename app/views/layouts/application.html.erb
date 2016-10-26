@@ -7,15 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<nav>
-		<div>
-			<a href="/guests">Guests</a>
-			<a href="/parties">Parties</a>
-		</div>
-	</nav>
+	<div class="col-lg-12 col-md-12 col-sm-12">
+		<nav>
+			<div>
+				<a href="/guests">Guests</a>
+				<a href="/parties">Parties</a>
+			</div>
+		</nav>
+	</div>
 	<div class="col-lg-12 col-md-12 col-sm-12">
 		<%= yield %>
 	</div>
-
 </body>
 </html>
