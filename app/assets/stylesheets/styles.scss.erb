@@ -65,6 +65,10 @@
 	color: $navy;
 }
 
+.light-blue__text {
+	color: $light-blue;
+}
+
 .text__align--center {
 	text-align: center;
 }
@@ -288,11 +292,11 @@ img.portugal__outline {
 }
 
 .border__right--navy {
-	border-right: 1px solid $navy;
+	border-right: 1px solid $light-blue;
 }
 
 .rsvp__row {
-	border-bottom: 1px solid $navy;
+	border-bottom: 1px solid $light-blue;
 }
 
 .row__80 {
@@ -310,7 +314,55 @@ img.portugal__outline {
 .right__block {
 	width: 40%;
 	height: 100%;
-	background-color: whitesmoke;
+	background-color: $light-blue;
 	float: right;
 	display: inline-block;
 }
+
+input[type=text],
+input[type=email],
+input[type=email],
+input[type=tel],
+textarea.form-control,
+select.form-control {
+	height: 40px;
+	border-radius: 0;
+	border: none;
+	border-bottom: 1px solid $light-blue;
+    font-size: 16px;
+    font-family: "BrandonMed";
+    color: $light-blue;
+	&::-webkit-input-placeholder { 
+	  color: $light-blue;
+	}
+	&::-moz-placeholder { 
+	  color: $light-blue;
+	}
+	&:-ms-input-placeholder { 
+	  color: $light-blue;
+	}
+	&:-moz-placeholder {
+	  color: $light-blue;
+	}
+	&:focus {
+		border-bottom: 1px solid $light-blue-solid;
+    	color: $light-blue-solid;
+    		&::-webkit-input-placeholder { 
+			  color: $light-blue-solid;
+			}
+			&::-moz-placeholder { 
+			  color: $light-blue-solid;
+			}
+			&:-ms-input-placeholder { 
+			  color: $light-blue-solid;
+			}
+			&:-moz-placeholder {
+			  color: $light-blue-solid;
+			}
+	}
+}
+
+select.form-control {
+	-webkit-appearance: none;
+}
+

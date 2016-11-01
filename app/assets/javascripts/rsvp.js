@@ -33,7 +33,7 @@ var RSVP = {
 		var statusContainer = $('.rsvp__status--update__message--inner-wrapper[data-guestid='+ data.guest_id +']');
 		$(statusContainer).empty();
 		var successString = (data.rsvp_status).toUpperCase();
-		$(statusContainer).append( $('<p>').text(successString).addClass('pressura--reg wide navy__text smaller') );
+		$(statusContainer).append( $('<p>').text(successString).addClass('pressura--reg wide light-blue__text smaller') );
 	}
 
 }
