@@ -391,7 +391,7 @@ button.submit__button {
 	margin: auto;
 }
 
-p.section__four--header {
+p.section__four--header-text {
 	font-family: "BrandonMed";
 	text-align: center;
 	font-weight: 600;
@@ -410,4 +410,18 @@ p.section__four--content {
 	max-width: calc(100% - 200px);
 	display: block;
 	margin: 0 auto;
+}
+
+.r-and-w {
+	background: url(' <%= asset_path("r-w.png") %> ') no-repeat;
+	height: 144px;
+	z-index: 1;
+	margin: 0 auto;
+	background-position: 50%;
+	transform: scale(.6);
+}
+
+.section__four {
+	height: calc(100vh - 200px);
+	background: url(' <%= asset_path("medium-square-tile2.png") %> ') repeat;
 }
