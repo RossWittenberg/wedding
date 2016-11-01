@@ -15,33 +15,83 @@
 							 	R
 							 </span>
 						</div>
-					</div>
+					</div>`
 				</div>		
 			</div>	
 		</div>
 	</div>
 </div>
-<% if @party %>
-	<% adult_guests = @party.guests.select { |guest| guest.is_child? == false }  %>
-	<div class="col-lg-12">
-		<div class="names__header--container">
-			<h2 class="invitee__names--header">
-				<% adult_guests.each_with_index do |guest, i| %>
-					<%- if i == 0 %>	
-						HI 
-					<%- end %>	
-					<%= guest.first_name.upcase %> 
-					<%- if i == 0 %> 
-						&amp; 
-					<%- end %>
-				<% end %>
-			</h2>
+<div class="section__two container">
+	<div class="table__wrapper">
+		<div class="table__inner">		
+			<% if @party %>
+				<% adult_guests = @party.guests.select { |guest| guest.is_child? == false }  %>
+					<h2 class="invitee__names--header">
+						<% adult_guests.each_with_index do |guest, i| %>
+							<%- if i == 0 %>	
+								HI 
+							<%- end %>	
+							<%= guest.first_name.upcase %> 
+							<%- if i == 0 %> 
+								&amp; 
+							<%- end %>
+						<% end %>
+					</h2>
+			<% end %>
+			<p class="body__text text__align--center">
+				Because you have shared such a special part in our life, we invite you to join in us Portugal to celebrate our we do! 
+			</p>
 		</div>	
-	</div>	
-<% end %>
+	</div>			
+</div>
 
-<% guests = @party.guests %>
-<% guests.each_with_index do |guest, i| %>
+<div class="section__three">
+	<div class="left__block" >
+		<div class="color__block navy__background">
+			<div class="table__wrapper">
+				<div class="table__inner">
+					<div class="portugal__text--wrapper">
+						<p class="white__text text__align--center color__block--header">
+							<%= ("Portugal").upcase %>
+						</p>
+						<p class="white__text text__align--center pressura--reg wide">
+							<%= ("pousada mosteiro de amares").upcase %>
+						</p>
+						<br>
+						<p class="white__text text__align--center pressura--reg wide">
+							<%= ("Monday, July").upcase %>
+						</p>
+						<div class="date__container">
+							<div class="skinny">
+								<span class="white__text text__align--center pressura--reg wide">
+									2<br>0
+								</span>
+							</div>
+							<div class="fat">
+								<span class="white__text text__align--center">
+									03
+								</span>
+							</div>
+							<div class="skinny">
+								<span class="white__text text__align--center pressura--reg wide">
+									2<br>0
+								</span>
+							</div>
+						</div>	
+					</div>
+					<div>
+						<img src="">
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>	
+	<div>
+		
+	</div>
+</div>
+
+<% @guests.each_with_index do |guest, i| %>
 	<%= simple_form_for guest,
 		url: guest_rsvp_update_path(guest),
 		method: 'put' do |f| %>
@@ -51,7 +101,7 @@
 				ATTENDENCE
 			</div>
 			<div class="col-lg-6">
-				<div class="col-12">
+				<div class="col-lg-12">
 					<%= guest.first_name %>
 					<%= guest.last_name %>
 				</div>
@@ -92,14 +142,33 @@
 		</div>
 	<% end %>
 <% end %>
-
-<%= simple_form_for @party,
-	url: party_rsvp_update_path(@party), 
-	method: 'put' do |f| %>
-	<div class="form-inputs">
-	<%= f.input :notes %>
-	</div>
-	<div class="form-actions">
-	<%= f.button :submit %>
-	</div>
-<% end %>
+<div class="container">
+	<div class="col-lg-12">
+		<% first_guest = @party.guests.first %>
+		<%= simple_form_for first_guest,
+			url: guest_rsvp_update_path(first_guest), 
+			method: 'put' do |f| %>
+			<div class="form-inputs">
+			    <%= f.input :street_address_line_1 %>
+			    <%= f.input :city %>
+			    <%= f.input :state %>
+			    <%= f.input :zip_code %>
+			    <%= f.input :country %>
+			    <%= f.input :phone_number %>
+			</div>
+			<div class="form-actions">
+				<%= f.button :submit %>
+			</div>
+		<% end %>
+		<%= simple_form_for @party,
+			url: party_rsvp_update_path(@party), 
+			method: 'put' do |f| %>
+			<div class="form-inputs">
+				<%= f.input :notes %>
+			</div>
+			<div class="form-actions">
+				<%= f.button :submit %>
+			</div>
+		<% end %>
+	</div>	
+</div>

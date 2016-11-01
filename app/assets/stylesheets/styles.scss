@@ -26,7 +26,6 @@
 	background-color: red;
 }
 
-
 .names__header {
 	color: $navy;
 	font-family: "BrandonMed";
@@ -40,6 +39,16 @@
 	&.right {
 		margin-left: 8px;
 	}
+}
+
+.body__text {
+	color: $navy;
+	font-family: "BrandonMed";
+	text-align: center;
+	font-weight: 600;
+	font-size: 18px;
+	letter-spacing: 3px;
+	line-height: 1.5;
 }
 
 .white__text {
@@ -58,6 +67,32 @@
 	height: calc(100vh - 200px);
 	background: url('/assets/small-square-tile2.png') repeat;
 }
+
+.section__two {
+	height: 200px;
+	max-width: 800px;
+	padding: 0 30px;
+}
+
+.section__three {
+	height: 430px;
+}
+
+.left__block {
+	width: 60%;
+	height: 100%;
+	position: relative;
+}
+
+.color__block {
+	height: 100%;
+	width: 100%;
+	position: relative;
+	&.navy__background {
+		background-color: $navy;
+	}	
+}
+
 
 .header__name--wrapper {
 	margin: 0 auto;
@@ -80,14 +115,27 @@
 	}
 }
 
-.invitee__names--header {
+.invitee__names--header,
+.color__block--header {
 	color: $navy;
 	font-family: "BigCaslon";
 	text-align: center;
 	font-weight: 200;
 	font-size: 38px;
-	letter-spacing: 2px;
+	letter-spacing: 4px;
 	width: 100%;
+	&.color__block--header {
+		color: $white;
+		font-weight: 100;
+	}
+}
+
+.pressura--reg {
+	font-family: "PressureReg";
+	font-size: 18px;
+	&.wide {
+		letter-spacing: 8px;
+	}
 }
 
 // .scallop__header {
@@ -127,3 +175,4 @@
 		}
 	}
 }
+
