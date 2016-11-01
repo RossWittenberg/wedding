@@ -1,5 +1,22 @@
 class PartiesController < ApplicationController
-  before_action :set_guest, only: [:show, :edit, :update, :destroy]
+  before_action :set_guest, only: [:show, :edit, :update, :destroy, :rsvp_update, :rsvp_success]
+  layout "rsvp", :only => [:rsvp_success]
+
+  def rsvp_update
+    respond_to do |format|
+      if @party.update(guest_params)
+        format.html { redirect_to controller: 'parties', action: 'rsvp_success', party_id: @party.id, notice: 'Thanks for RSVP-ing!' }
+        format.json { render :show, status: :ok, location: @party }
+      else
+        format.html { render :edit }
+        format.json { render json: @party.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def rsvp_success
+    
+  end
 
   # GET /parties
   # GET /parties.json
@@ -64,7 +81,8 @@ class PartiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_guest
-      @party = Party.find(params[:id])
+      party_id = params[:id] || params[:party_id]
+      @party = Party.find(party_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

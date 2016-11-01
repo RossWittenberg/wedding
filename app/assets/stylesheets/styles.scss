@@ -1,3 +1,8 @@
+@import 'colors';
+@import 'fonts';
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
+
+
 .upcase {
 	text-transform: uppercase;
 }
@@ -21,6 +26,104 @@
 	background-color: red;
 }
 
+
+.names__header {
+	color: $navy;
+	font-family: "BrandonMed";
+	text-align: center;
+	font-weight: 200;
+	font-size: 50px;
+	letter-spacing: 3px;
+	&.plus {
+		font-size: 30px;
+	}
+	&.right {
+		margin-left: 8px;
+	}
+}
+
+.white__text {
+	color: $white;
+}
+
+.text__align--center {
+	text-align: center;
+}
+
 .kid td {
 	color: deepskyblue;
+}
+
+.rsvp__header {
+	height: calc(100vh - 200px);
+	background: url('/assets/small-square-tile2.png') repeat;
+}
+
+.header__name--wrapper {
+	margin: 0 auto;
+	height: 225px;
+	width: 380px;
+	background-color: $white;
+}
+
+.white__border {
+	position: relative;
+	&:before {
+	  display: block;
+	  content: '';
+	  position: absolute;
+	  top: 16px;
+	  right: 16px;
+	  bottom: 16px;
+	  left: 16px;
+	  border: 1px solid $navy;
+	}
+}
+
+.invitee__names--header {
+	color: $navy;
+	font-family: "BigCaslon";
+	text-align: center;
+	font-weight: 200;
+	font-size: 38px;
+	letter-spacing: 2px;
+	width: 100%;
+}
+
+// .scallop__header {
+// 	height: 51px;
+// 	background: url('/assets/azulego-scallop-double.png') repeat;
+// }
+
+.table__wrapper {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+.table__inner {
+	display: table-cell;
+	height: 100%;
+	vertical-align: middle;
+}
+
+.rsvp__radio--cirle {
+	height: 16px;
+	width: 16px;
+	border: 1px solid $navy;
+	border-radius: 50px;
+	display: inline-block;
+	margin-right: 12px;
+	margin-top: 2px;
+	&.selected {
+		&:after {
+		content: "";
+	    height: 14px;
+	    width: 14px;
+	    display: block;
+	    background-color: $navy;
+	    border-radius: 50px;
+	    border: 2px $white solid;
+		}
+	}
 }

@@ -1,10 +1,105 @@
+<div class="rsvp__header">
+	<div class="table__wrapper dark-blue__blackground">
+		<div class="table__inner">
+			<div class="header__name--wrapper white__border">
+				<div class="table__wrapper dark-blue__blackground">
+					<div class="table__inner">
+						<div class="names__header text__align--center white__text">
+							<span class="names__header">
+								W
+							</span>
+							<span class="names__header plus">
+								+
+							</span>
+							 <span class="names__header right">
+							 	R
+							 </span>
+						</div>
+					</div>
+				</div>		
+			</div>	
+		</div>
+	</div>
+</div>
 <% if @party %>
-	Hi
-	<% guests = @party.guests.select { |guest| guest.is_child? == false }  %>
-	<% guests.each_with_index do |guest, i| %>
-		<%= guest.first_name %> 
-		<%- if i == 0 %> 
-			&amp; 
-		<%- end %>
+	<% adult_guests = @party.guests.select { |guest| guest.is_child? == false }  %>
+	<div class="col-lg-12">
+		<div class="names__header--container">
+			<h2 class="invitee__names--header">
+				<% adult_guests.each_with_index do |guest, i| %>
+					<%- if i == 0 %>	
+						HI 
+					<%- end %>	
+					<%= guest.first_name.upcase %> 
+					<%- if i == 0 %> 
+						&amp; 
+					<%- end %>
+				<% end %>
+			</h2>
+		</div>	
+	</div>	
+<% end %>
+
+<% guests = @party.guests %>
+<% guests.each_with_index do |guest, i| %>
+	<%= simple_form_for guest,
+		url: guest_rsvp_update_path(guest),
+		method: 'put' do |f| %>
+		<div class="container">
+			<div class="col-lg-3">
+				GUEST<br>
+				ATTENDENCE
+			</div>
+			<div class="col-lg-6">
+				<div class="col-12">
+					<%= guest.first_name %>
+					<%= guest.last_name %>
+				</div>
+				<div class="col-lg-3">
+					<span data-guestID="<%= guest.id %>" data-row="<%= i %>" data-value="true" class="rsvp__radio--cirle <% if guest.attending? %> selected <% end %>">
+						
+					</span>
+					<span class="rsvp__radio--cirle__label">
+						YES
+					</span>
+				</div>
+				<div class="col-lg-3">
+					<span data-guestID="<%= guest.id %>" data-row="<%= i %>" data-value="false" class="rsvp__radio--cirle deselected <% if guest.attending === false && guest.attending != nil %> selected <% end %>">
+						
+					</span>
+					<span class="rsvp__radio--cirle__label">
+						NO
+					</span>
+				</div>
+
+				<div class="col-lg-3">
+					<span data-guestID="<%= guest.id %>" data-row="<%= i %>" data-value="nil" class="rsvp__radio--cirle deselected <% if guest.attending.blank? && guest.attending == nil %> selected <% end %>">
+						
+					</span>
+					<span class="rsvp__radio--cirle__label">
+						MAYBE
+					</span>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div data-guestID="<%= guest.id %>" class="rsvp__status--update__message--wrapper">
+				</div>
+			</div>
+		</div>
+		<div class="form-inputs">
+			<%= hidden_field guest, :attending, value: guest.attending %>
+			<%= hidden_field guest, :invite_sent, value: guest.invite_sent %>
+		</div>
 	<% end %>
-<% end %>	
+<% end %>
+
+<%= simple_form_for @party,
+	url: party_rsvp_update_path(@party), 
+	method: 'put' do |f| %>
+	<div class="form-inputs">
+	<%= f.input :notes %>
+	</div>
+	<div class="form-actions">
+	<%= f.button :submit %>
+	</div>
+<% end %>

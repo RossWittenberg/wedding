@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  resources :guests
-  resources :parties
+  resources :guests do
+    match 'rsvp-update', to: 'guests#rsvp_update', via: [:put]
+    match 'rsvp-sucess', to: 'guests#rsvp_success', via: [:get]
+  end
+  resources :parties do 
+    match 'rsvp-update', to: 'parties#rsvp_update', via: [:put]
+    match 'rsvp-sucess', to: 'parties#rsvp_success', via: [:get]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

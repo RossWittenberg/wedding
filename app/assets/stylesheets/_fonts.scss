@@ -1,0 +1,25 @@
+@media all {
+	// Brandon
+	@font-face {
+		font-family: "BrandonBold";
+		src: font-url("Brandon_bld.otf") format("opentype");
+	}
+	@font-face {
+		font-family: "BrandonMed";
+		src: font-url("Brandon_med.otf") format("opentype");
+	}
+	@font-face {
+		font-family: "DalaFloda";
+		src: font-url("DalaFloda-RomanNo2.otf") format("opentype");
+	}
+	@font-face {
+		font-family: "PressureReg";
+		src: font-url("GT-Pressura-Regular.otf") format("opentype");
+	}
+
+	@font-face {
+		font-family: "BigCaslon";
+		src: font-url("BigCaslon.otf") format("opentype");
+	}
+
+}

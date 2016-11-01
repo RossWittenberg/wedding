@@ -1,6 +1,31 @@
 class GuestsController < ApplicationController
-  before_action :set_guest, only: [:show, :edit, :update, :destroy]
+  before_action :set_guest, only: [:show, :edit, :update, :destroy, :rsvp_update, :rsvp_success]
   helper_method :sort_column, :sort_direction
+  layout "rsvp", :only => [:rsvp_success]
+
+  def rsvp_update
+    respond_to do |format|
+      if guest_params[:attending] === "nil"
+        guest_params[:attending] = nil
+      elsif guest_params[:attending] === "false"
+        guest_params[:attending] = false
+      else 
+        guest_params[:attending] = true
+      end 
+      if @guest.update(guest_params)
+        @rsvp_message = "#{@guest.first_name}'s status has been changed to "
+        @rsvp_status = @guest.status_string
+        format.json { render json: { rsvp_message: @rsvp_message, guest_id: @guest.id, rsvp_status: @rsvp_status } }
+      else
+        format.html { render :edit }
+        format.json { render json: @guest.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def rsvp_success
+    
+  end
 
   # GET /guests
   # GET /guests.json
@@ -90,7 +115,8 @@ class GuestsController < ApplicationController
     end
     
     def set_guest
-      @guest = Guest.find(params[:id])
+      guest_id = params[:id] || params[:guest_id]
+      @guest = Guest.find(guest_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
