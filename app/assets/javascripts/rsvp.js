@@ -32,7 +32,7 @@ var RSVP = {
 	renderRSVPSuccessMessage: function(data) {
 		var statusContainer = $('.rsvp__status--update__message--inner-wrapper[data-guestid='+ data.guest_id +']');
 		$(statusContainer).empty();
-		var successString = "STATUS " + (data.rsvp_status).toUpperCase();
+		var successString = (data.rsvp_status).toUpperCase();
 		$(statusContainer).append( $('<p>').text(successString).addClass('pressura--reg wide navy__text smaller') );
 	}
 

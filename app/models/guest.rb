@@ -6,9 +6,9 @@ class Guest < ActiveRecord::Base
   		else 
 	  		case self.attending?
 	  		when true
-	  			return "attending"
+	  			return "is attending"
 	  		when false
-	  			return "not attending"
+	  			return "is not attending"
 	  		end	
   		end
   	end

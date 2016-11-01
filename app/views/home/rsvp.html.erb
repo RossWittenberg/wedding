@@ -103,19 +103,19 @@
 			<tbody>
 				<% @guests.each_with_index do |guest, i| %>
 					<tr class="row__60">
-						<td class="border__right--navy" colspan="1">
-						</td>
-						<td colspan="4">
-							<p class="padding__left--20 relative z-one navy__text text__align--left rsvp__form--header">
+						<td colspan="1" class="border__right--navy">
+							<p class="relative z-one navy__text text__align--left rsvp__form--header">
 								<%= (guest.first_name).upcase %>
 							</p>
+						</td>
+						<td colspan="4">
 						</td>
 					</tr>
 					<tr class="rsvp__row row__80 <% if i === 0 %> no__top--border<% end %>">
 						<td class="border__right--navy rsvp__status--update__message--wrapper" colspan="1">
 							<div class="rsvp__status--update__message--inner-wrapper" data-guestID="<%= guest.id %>">
 								<p class="pressura--reg wide navy__text smaller">
-									STATUS <%= (guest.status_string).upcase %>
+									<%= (guest.status_string).upcase %>
 								</p>	
 							</div>
 						</td>
