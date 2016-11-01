@@ -94,57 +94,61 @@
 	</div>
 </div>
 
-<% @guests.each_with_index do |guest, i| %>
-	<%= simple_form_for guest,
-		url: guest_rsvp_update_path(guest),
-		method: 'put' do |f| %>
-		<div class="container">
-			<div class="col-lg-3">
-				GUEST<br>
-				ATTENDENCE
-			</div>
-			<div class="col-lg-6">
-				<div class="col-lg-12">
-					<%= guest.first_name %>
-					<%= guest.last_name %>
-				</div>
-				<div class="col-lg-3">
-					<span data-guestID="<%= guest.id %>" data-row="<%= i %>" data-value="true" class="rsvp__radio--cirle <% if guest.attending? %> selected <% end %>">
-						
-					</span>
-					<span class="rsvp__radio--cirle__label">
-						YES
-					</span>
-				</div>
-				<div class="col-lg-3">
-					<span data-guestID="<%= guest.id %>" data-row="<%= i %>" data-value="false" class="rsvp__radio--cirle deselected <% if guest.attending === false && guest.attending != nil %> selected <% end %>">
-						
-					</span>
-					<span class="rsvp__radio--cirle__label">
-						NO
-					</span>
-				</div>
+<div class="container">
+	<div class="col-lg-12 col-md-12 col-sm-12">
+		<p class="body__text text__align--center margin__top--60 margin__bottom--20">
+			RSVP
+		</p>
+		<table class="rsvp__table">
+			<tbody>
+				<% @guests.each_with_index do |guest, i| %>
+					<tr class="row__60">
+						<td class="border__right--navy" colspan="1">
+						</td>
+						<td colspan="4">
+							<p class="padding__left--20 relative z-one navy__text text__align--left rsvp__form--header">
+								<%= (guest.first_name).upcase %>
+							</p>
+						</td>
+					</tr>
+					<tr class="rsvp__row row__80 <% if i === 0 %> no__top--border<% end %>">
+						<td class="border__right--navy rsvp__status--update__message--wrapper" colspan="1">
+							<div class="rsvp__status--update__message--inner-wrapper" data-guestID="<%= guest.id %>">
+								<p class="pressura--reg wide navy__text smaller">
+									STATUS <%= (guest.status_string).upcase %>
+								</p>	
+							</div>
+						</td>
+						<td class="padding__left--20">
+							<span data-guestID="<%= guest.id %>" data-row="<%= i %>" data-value="true" class="rsvp__radio--cirle <% if guest.attending? %> selected <% end %>">
+							</span>
+							<span class="rsvp__radio--cirle__label">
+								YES
+							</span>
+						</td>
+						<td class="padding__left--20">
+							<span data-guestID="<%= guest.id %>" data-row="<%= i %>" data-value="false" class="rsvp__radio--cirle deselected <% if guest.attending === false && guest.attending != nil %> selected <% end %>">
+								
+							</span>
+							<span class="rsvp__radio--cirle__label">
+								NO
+							</span>
+						</td>
+						<td class="padding__left--20">	
+							<span data-guestID="<%= guest.id %>" data-row="<%= i %>" data-value="nil" class="rsvp__radio--cirle deselected <% if guest.attending.blank? && guest.attending == nil %> selected <% end %>">
+								
+							</span>
+							<span class="rsvp__radio--cirle__label">
+								MAYBE
+							</span>
+						</td>
+					</tr>	
+				<% end %>
+			</tbody>
+		</table>
+	</div>	
+</div>
 
-				<div class="col-lg-3">
-					<span data-guestID="<%= guest.id %>" data-row="<%= i %>" data-value="nil" class="rsvp__radio--cirle deselected <% if guest.attending.blank? && guest.attending == nil %> selected <% end %>">
-						
-					</span>
-					<span class="rsvp__radio--cirle__label">
-						MAYBE
-					</span>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div data-guestID="<%= guest.id %>" class="rsvp__status--update__message--wrapper">
-				</div>
-			</div>
-		</div>
-		<div class="form-inputs">
-			<%= hidden_field guest, :attending, value: guest.attending %>
-			<%= hidden_field guest, :invite_sent, value: guest.invite_sent %>
-		</div>
-	<% end %>
-<% end %>
 <div class="container">
 	<div class="col-lg-12">
 		<% first_guest = @party.guests.first %>

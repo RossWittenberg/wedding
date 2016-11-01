@@ -4,7 +4,7 @@ var RSVP = {
 		$('.rsvp__radio--cirle').click(function(event) {
 			var selectedCircle = $(this);
 			var selectedRow = $(this).data("row");
-			var circlesOfSelectedRow = $('form').find('span[data-row='+ $(this).data('row') +']');
+			var circlesOfSelectedRow = $('span[data-row='+ $(this).data('row') +']');
 			$(circlesOfSelectedRow).removeClass('selected');
 			$(selectedCircle).addClass('selected');
 			var selectedCircleVal = $(selectedCircle).data('value');
@@ -30,10 +30,10 @@ var RSVP = {
 		});
 	},
 	renderRSVPSuccessMessage: function(data) {
-		var statusContainer = $('form').find('.rsvp__status--update__message--wrapper[data-guestid='+ data.guest_id +']');
+		var statusContainer = $('.rsvp__status--update__message--inner-wrapper[data-guestid='+ data.guest_id +']');
 		$(statusContainer).empty();
-		var successString = data.rsvp_message + data.rsvp_status;
-		$(statusContainer).append( $('<p>').text(successString) );
+		var successString = "STATUS " + (data.rsvp_status).toUpperCase();
+		$(statusContainer).append( $('<p>').text(successString).addClass('pressura--reg wide navy__text smaller') );
 	}
 
 }

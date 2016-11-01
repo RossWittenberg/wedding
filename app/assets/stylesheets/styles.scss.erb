@@ -61,8 +61,16 @@
 	color: $white;
 }
 
+.navy__text {
+	color: $navy;
+}
+
 .text__align--center {
 	text-align: center;
+}
+
+.text__align--left {
+	text-align: left;
 }
 
 .kid td {
@@ -122,10 +130,10 @@
 }
 
 .invitee__names--header,
-.color__block--header {
+.color__block--header,
+.rsvp__form--header {
 	color: $navy;
 	font-family: "BigCaslon";
-	text-align: center;
 	font-weight: 200;
 	font-size: 38px;
 	letter-spacing: 4px;
@@ -150,6 +158,9 @@
 		margin: 20px auto;
 		line-height: 1.7;
 	}
+	&.smaller {
+		font-size: 14px;
+	}
 }
 
 // .scallop__header {
@@ -167,6 +178,10 @@
 	display: table-cell;
 	height: 100%;
 	vertical-align: middle;
+}
+
+.rsvp__radio--cirle__label {
+	@extend .body__text;
 }
 
 .rsvp__radio--cirle {
@@ -221,4 +236,68 @@ img.portugal__outline {
     left: calc(50% - 35px);
     z-index: 0;
     top: 55px;
+}
+
+.margin__top--20 {
+	margin-top: 20px;
+}
+
+.margin__top--40 {
+	margin-top: 40px;
+}
+
+.margin__top--60 {
+	margin-top: 60px;
+}
+
+.margin__top--80 {
+	margin-bottom: 80px;
+}
+
+.margin__bottom--20 {
+	margin-bottom: 20px;
+}
+
+.margin__bottom--40 {
+	margin-bottom: 40px;
+}
+
+.margin__bottom--60 {
+	margin-bottom: 60px;
+}
+
+.margin__bottom--80 {
+	margin-bottom: 80px;
+}
+
+.padding__left--20 {
+	padding-left: 20px;
+}
+
+.rsvp__table {
+	width: 100%;
+}
+
+.rsvp__status--update__message--wrapper {
+	width: 25%;
+}
+
+.border__right--navy {
+	border-right: 1px solid $navy;
+}
+
+.rsvp__row {
+	border-bottom: 1px solid $navy;
+}
+
+.row__80 {
+	height: 80px;
+}
+
+.row__60 {
+	height: 60px;
+	p {
+		margin-bottom: 2px;
+		margin-top: 40px;
+	}
 }
