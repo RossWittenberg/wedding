@@ -5,18 +5,18 @@
 				<div class="table__wrapper dark-blue__blackground">
 					<div class="table__inner">
 						<div class="names__header text__align--center white__text">
-							<!-- <span class="names__header">
-								W
+							<span class="names__header">
+								R
 							</span>
 							<span class="names__header plus">
 								+
 							</span>
 							<span class="names__header right">
-							 	R
-							 </span> -->
-							<div class="r-and-w">
+							 	W
+							 </span>
+							<!-- <div class="r-and-w">
 								
-							</div> 
+							</div> --> 
 						</div>
 					</div>
 				</div>		
@@ -35,15 +35,14 @@
 								HI 
 							<%- end %>	
 							<%= guest.first_name.upcase %> 
-							<%- if i == 0 %> 
+							<%- if i == 0 && adult_guests.count > 1 %> 
 								&amp; 
 							<%- end %>
-						<% end %>
-						!
+						<% end %>!
 					</h2>
 			<% end %>
-			<p class="margin__bottom--0 body__text text__align--center">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tristique purus quis nisi pulvinar, ut accumsan sed.
+			<p class="margin__top--20 margin__bottom--0 body__text text__align--center">
+				Because you have shared in our lives, brought us love, laughter, and joy, we ask you to join us in PORTUGAL to celebrate our 'WE DO'!
 			</p>
 		</div>	
 	</div>			
@@ -55,13 +54,13 @@
 			<div class="table__wrapper">
 				<div class="table__inner">
 					<div class="portugal__text--wrapper">
-						<img src="<%= asset_path("portugal.png") %>" class="portugal__outline">
+						<img src="<%= asset_path("dark-portugal.png") %>" class="portugal__outline">
 						<p class="relative z-one white__text text__align--center color__block--header">
 							<%= ("Portugal").upcase %>
 						</p>
-						<p class="relative z-one white__text text__align--center pressura--reg pousada wide">
+						<a target="_blank" href="http://google.com" class="hover__ligthen relative z-one white__text text__align--center pressura--reg pousada wide">
 							<%= ("pousada mosteiro de amares").upcase %>
-						</p>
+						</a>
 						<br>
 						<br>
 						<p class="relative z-one white__text text__align--center pressura--reg date__header wide">
@@ -99,7 +98,7 @@
 
 <div class="container">
 	<div class="col-lg-12 col-md-12 col-sm-12">
-		<p class="body__text text__align--center margin__top--60 margin__bottom--0">
+		<p class="body__text text__align--center margin__top--60 margin__bottom--0 bigger">
 			RSVP
 		</p>
 		<table class="rsvp__table">
@@ -158,14 +157,14 @@
 				<div class="table__wrapper">
 					<div class="table__inner">
 						<div class="section__four--inner-wrapper">
-							<p class="text__align--center navy__text section__four--header-text">
+							<p class="text__align--center navy__text section__four--header-text bigger">
 								<%= ("Make it an adventure!").upcase %>
 							</p>
-							<p class="pressura--reg wide text__align--center navy__text smaller">
-								COME A FEW DAYS EARLY &amp; STAY A FEW DAYS LATE
-							</p>
+							<p class="body__text wide text__align--center navy__text smaller">	
+								COME A FEW DAYS EARLY,  STAY A FEW DAYS POST, OR BOTH!
+								</p>
 							<p class="section__four--content text__align--center navy__text margin__top--40">
-								The Closest airport is Oporto. You can also fly into Lisboa, which is often cheaper, and venture up by car or train.
+								The wedding will be held at <a target="_blank" class="link" href="http://google.com">Mosteiro de Amares</a> on, July 3, 2017. The closest airport is Oporto. As an alternative, you can fly into Lisbon and venture up via car or train. Regardless of which airport you choose, we recommend renting a car to facilitate your adventure! If you prefer, there are also convenient bus options available. Additional information re: pre/post festivities, accomodations, transportation, and more coming soon&mdash;stay tuned!
 							</p>
 						</div>	
 					</div>
@@ -174,51 +173,56 @@
 		</div>
 	</div>
 </div>
-<div class="container margin__top--20 margin__bottom--0">
+<div class="container margin__top--0 margin__bottom--0">
 	<div class="col-lg-12">
-		<% first_guest = @party.guests.first %>
-		<%= simple_form_for first_guest,
-			url: guest_rsvp_update_path(first_guest), 
-			method: 'put' do |f| %>
-			<div class="form-inputs">
-				<div class="row">
-				    <div class="col-lg-12 col-md-12 col-sm-12">
-				    	<%= f.input :street_address_line_1, placeholder: "Street Address (Line 1)", label: false %>
-				    </div>
-				    <div class="col-lg-12 col-md-12 col-sm-12">
-				    	<%= f.input :street_address_line_2, placeholder: "Street Address (Line 2)", label: false %>
-				    </div>
-			    	<div class="col-lg-4 col-md-12 col-sm-12">
-				    	<%= f.input :city, label: false, placeholder: "City" %>
-				    </div>
-			    	<div class="col-lg-4 col-md-12 col-sm-12">
-				    	<%= f.input :state, label: false, placeholder: "State" %>
-				    </div>
-			    	<div class="col-lg-4 col-md-12 col-sm-12">
-				    	<%= f.input :zip_code, placeholder: "Zip Code", label: false %>
-				    </div>
-			    	<div class="col-lg-8 col-md-12 col-sm-12">
-				    	<%= f.input :country, label: false, placeholder: "Country"%>
-				    </div>
-			    	<div class="col-lg-4 col-md-12 col-sm-12">
-				    	<%= f.input :phone_number, label: false, placeholder: "Phone Number" %>
-				    </div>
-				</div>    
-			</div>
-		<% end %>
+		<p class="body__text text__align--center bigger">
+			YOUR DETAILS
+		</p>
+		<div class="relative margin__top--40">
+			<% first_guest = @party.guests.first %>
+			<%= simple_form_for first_guest,
+				url: guest_rsvp_update_path(first_guest), 
+				method: 'put' do |f| %>
+				<div class="form-inputs">
+					<div class="row">
+					    <div class="col-lg-12 col-md-12 col-sm-12">
+					    	<%= f.input :street_address_line_1, placeholder: "Street Address (Line 1)", label: false %>
+					    </div>
+					    <div class="col-lg-12 col-md-12 col-sm-12">
+					    	<%= f.input :street_address_line_2, placeholder: "Street Address (Line 2)", label: false %>
+					    </div>
+				    	<div class="col-lg-4 col-md-12 col-sm-12">
+					    	<%= f.input :city, label: false, placeholder: "City" %>
+					    </div>
+				    	<div class="col-lg-4 col-md-12 col-sm-12">
+					    	<%= f.input :state, label: false, placeholder: "State" %>
+					    </div>
+				    	<div class="col-lg-4 col-md-12 col-sm-12">
+					    	<%= f.input :zip_code, placeholder: "Zip Code", label: false %>
+					    </div>
+				    	<div class="col-lg-8 col-md-12 col-sm-12">
+					    	<%= f.input :country, label: false, placeholder: "Country"%>
+					    </div>
+				    	<div class="col-lg-4 col-md-12 col-sm-12">
+					    	<%= f.input :phone_number, label: false, placeholder: "Phone Number" %>
+					    </div>
+					</div>    
+				</div>
+			<% end %>
+		</div>	
 		<%= simple_form_for @party,
 			url: party_rsvp_update_path(@party), 
 			method: 'put' do |f| %>
 		    <div class="row">
 		    	<div class="col-lg-12 col-md-12 col-sm-12">
 					<div class="form-inputs">
-						<%= f.input :notes, label: false, placeholder: "Notes" %>
+						<%= f.input :notes, label: false, input_html: { class: 'textarea' },placeholder: ("Leave us a note&mdash;let us know if there is anything we should be aware of&mdash;e.g. dietary restrictions, etc.	").html_safe %>
 					</div>
-		    	</div>
+		    	</div>	
 		    </div>	
 		<% end %>
 		<div class="row">
-			<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="col-lg-12 col-md-12 col-sm-12">	
 				<div class="submit__button--container">
 					<button class="submit__button">
 						SUBMIT						

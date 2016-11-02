@@ -2,13 +2,13 @@ class Guest < ActiveRecord::Base
 	belongs_to :party
   	def status_string
   		if self.attending.blank? && self.attending == nil
-  			return "might attend"
+  			return "will let you know ASAP"
   		else 
 	  		case self.attending?
 	  		when true
-	  			return "is attending"
+	  			return "wouldn't miss it for the world"
 	  		when false
-	  			return "is not attending"
+	  			return "will be there in spirit"
 	  		end	
   		end
   	end

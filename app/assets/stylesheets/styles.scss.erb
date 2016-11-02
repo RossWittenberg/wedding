@@ -37,13 +37,13 @@
 	font-family: "BrandonMed";
 	text-align: center;
 	font-weight: 200;
-	font-size: 50px;
+	font-size: 42px;
 	letter-spacing: 3px;
 	&.plus {
 		font-size: 30px;
 	}
 	&.right {
-		margin-left: 8px;
+		margin-left: 2px;
 	}
 }
 
@@ -55,6 +55,13 @@
 	font-size: 18px;
 	letter-spacing: 3px;
 	line-height: 1.5;
+	&.bigger {
+		font-size: 32px;
+		letter-spacing: 10px;
+	}
+	&.smaller {
+		font-size: 14px;
+	}
 }
 
 .white__text {
@@ -83,12 +90,12 @@
 
 .rsvp__header {
 	height: calc(100vh - 200px);
-	background: url(' <%= asset_path("medium-square-tile2.png") %> ') repeat;
+	background: url(' <%= asset_path("medium-square-tile.jpg") %> ') repeat;
 }
 
 .section__two {
 	height: 200px;
-	max-width: 800px;
+	max-width: 900px;
 	padding: 0 30px;
 }
 
@@ -115,8 +122,8 @@
 
 .header__name--wrapper {
 	margin: 0 auto;
-	height: 225px;
-	width: 380px;
+	height: 200px;
+	width: 300px;
 	background-color: $white;
 }
 
@@ -141,7 +148,7 @@
 	font-family: "BigCaslon";
 	font-weight: 200;
 	font-size: 38px;
-	letter-spacing: 4px;
+	letter-spacing: 10px;
 	width: 100%;
 	&.color__block--header {
 		color: $white;
@@ -191,7 +198,7 @@
 
 .rsvp__radio--cirle {
 	height: 16px;
-	width: 16px;
+	width: 17px;
 	border: 1px solid $navy;
 	border-radius: 50px;
 	display: inline-block;
@@ -201,7 +208,7 @@
 		&:after {
 		content: "";
 	    height: 14px;
-	    width: 14px;
+	    width: 15px;
 	    display: block;
 	    background-color: $navy;
 	    border-radius: 50px;
@@ -237,10 +244,10 @@
 
 img.portugal__outline {
 	position: absolute;
-    width: 70px;
-    left: calc(50% - 35px);
+    width: 180px;
+    left: calc(50% - 90px);
     z-index: 0;
-    top: 55px;
+    top: 27px;
 }
 
 .margin__top--20 {
@@ -257,6 +264,10 @@ img.portugal__outline {
 
 .margin__top--80 {
 	margin-bottom: 80px;
+}
+
+.margin__top--100 {
+	margin-bottom: 100px;
 }
 
 .margin__bottom--0 {
@@ -306,7 +317,7 @@ img.portugal__outline {
 .row__60 {
 	height: 60px;
 	p {
-		margin-bottom: 2px;
+		margin-bottom: 12px;
 		margin-top: 40px;
 	}
 }
@@ -377,10 +388,16 @@ button.submit__button {
 	display: block;
 	font-family: "BrandonMed";
 	text-align: center;
-	font-weight: 600;
-	font-size: 18px;
+	font-weight: 400;
+	font-size: 16px;
 	letter-spacing: 3px;
 	line-height: 1.5;
+	cursor: pointer;
+	transition: all .3s ease-in-out;
+	&:hover,
+	&:focus {
+		background-color: lighten( $navy, 10%);
+	}
 }
 
 .section__four--header__wrapper {
@@ -402,8 +419,20 @@ p.section__four--header-text {
 
 p.section__four--content {
 	font-family: "MilleDisLig";
-	font-size: 24px;
+	font-size: 18px;
 	line-height: 1.5;
+	position: relative;
+    z-index: 1;
+    a {
+    	color: $light-blue;
+    	transition: all .3s ease-in-out;
+    	&:hover,
+    	&:focus {
+	    	background-color: transparent;
+	    	color: $bright-blue;
+	    	text-decoration: none;
+    	}
+    }	
 }
 
 .section__four--inner-wrapper {
@@ -418,10 +447,30 @@ p.section__four--content {
 	z-index: 1;
 	margin: 0 auto;
 	background-position: 50%;
-	transform: scale(.6);
+	transform: scale(.9);
 }
 
 .section__four {
+	margin: 60px 0;
 	height: calc(100vh - 200px);
 	background: url(' <%= asset_path("medium-square-tile2.png") %> ') repeat;
+}
+
+.textarea {
+	height: 100px !important;
+}
+
+a.hover__ligthen {
+	cursor: pointer;
+	text-align: center;
+	display: block;
+	text-decoration: none;
+	transition: all .3s ease-in-out;
+	&:hover,
+	&:focus,
+	&:visited {
+		color: lighten($bright-blue, .7);
+		text-decoration: none;
+		background-color: transparent;
+	}
 }
