@@ -46,7 +46,6 @@ var RSVP = {
 			}, 2000 );
 		});
 	}
-
 }
 
 $(document).ready(function(){
