@@ -236,13 +236,37 @@
 	</div>	
 </div>
 <div class="section__five">
-	<!-- <form action="https://formspree.io/daniellealva89@gmail.com"
-      method="POST"> -->
-  	<form action="https://formspree.io/ross.wittenberg@gmail.com"
-      method="POST">
-    <input type="text" name="name" placeholder="Name">
-    <input type="email" name="_replyto" placeholder="Email">
-    <input type="text" name="message" placeholder="Message">
-    <input type="submit" value="Send">
-</form>
+    <div id="formModal">
+        <div class="container">
+            <form action="https://formspree.io/ross.wittenberg@gmail.com" method="POST">
+                <div class="form__row--wrapper">
+                    <div class="form__row--inner-wrapper">
+                        <input type="text" name="name1" placeholder="Name">
+                        <input type="email" name="email1" placeholder="Email">
+
+                        <select type="text" name="meal1" placeholder="Meal">
+                            <option value="Chicken">
+                                Chicken
+                            </option>
+                            <option value="Meat">
+                                Meat
+                            </option>
+                            <option value="Veggie">
+                                Veggie
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <textarea name="note1" placeholder="Note">
+                    
+                </textarea>
+                <button id="emailSubmit" type="button" value="Send">
+                    Submit
+                </button>
+                <button id="addGuest" type="button">
+                    +
+                </button>
+            </form>
+        </div>
+    </div>
 </div>
