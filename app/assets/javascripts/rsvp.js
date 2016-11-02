@@ -34,10 +34,17 @@ var RSVP = {
 		$(statusContainer).empty();
 		var successString = (data.rsvp_status).toUpperCase();
 		$(statusContainer).append( $('<p>').text(successString).addClass('pressura--reg wide light-blue__text smaller') );
+	},
+	displayLogo: function(){
+		$('.header__name--wrapper').fadeIn(800, function() {
+			var sectionOneOffset = 
+			setTimeout( function(){ }, 1500 );
+		});
 	}
 
 }
 
 $(document).ready(function(){
 	RSVP.addListeners();
+	setTimeout( RSVP.displayLogo, 500 );
 });
