@@ -37,8 +37,13 @@ var RSVP = {
 	},
 	displayLogo: function(){
 		$('.header__name--wrapper').fadeIn(800, function() {
-			var sectionOneOffset = 
-			setTimeout( function(){ }, 1500 );
+			var sectionOneOffset = 200;
+			setTimeout( function(){
+				console.log(sectionOneOffset);
+			    $('html, body').animate({
+			        scrollTop: $(".section__two").offset().top + 2
+			    }, 500);
+			}, 2000 );
 		});
 	}
 
@@ -47,31 +52,4 @@ var RSVP = {
 $(document).ready(function(){
 	RSVP.addListeners();
 	setTimeout( RSVP.displayLogo, 500 );
-});
-
-
-var EMAIL = {
-	formRowWrapper: $('.form__row--wrapper'),
-	addListeners: function() {
-		console.log("Email.js has been loaded.")
-		var guestCount = 1;
-		$('#addGuest').click(function(e) {
-			guestCount++;
-			e.preventDefault();
-			EMAIL.addGuest(guestCount);
-		});
-		$('#emailSubmit').click(function(e) {
-			e.preventDefault();
-			var rsvpForm = $(this).parent();
-			$(rsvpForm).submit();
-		});
-	},
-	addGuest: function(guestCount){
-		console.log(guestCount);
-		$('.form__row--wrapper').append( $('<div>').addClass('form__row--inner-wrapper').append('<input type="text" name="name'+guestCount+'" placeholder="Name"><input type="email" name="email'+guestCount+'" placeholder="Email"><select type="text" name="meal'+guestCount+'" placeholder="Meal"><option value="Chicken">Chicken</option><option value="Meat">Meat</option><option value="Veggie">Veggie</option></select>') )
-	}
-}
-
-$(document).ready(function(){
-	EMAIL.addListeners();
 });
