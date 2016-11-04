@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
   resources :guests do
     match 'rsvp-update', to: 'guests#rsvp_update', via: [:put]
-    match 'rsvp-sucess', to: 'guests#rsvp_success', via: [:get]
+    match 'rsvp-success', to: 'guests#rsvp_success', via: [:get]
   end
   resources :parties do 
     match 'rsvp-update', to: 'parties#rsvp_update', via: [:put]
     match 'rsvp-sucess', to: 'parties#rsvp_success', via: [:get]
   end
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -15,6 +14,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'home/rsvp'
+  
+  get 'home/export_for_mailchimp'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

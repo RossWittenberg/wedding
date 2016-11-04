@@ -42,8 +42,8 @@ var RSVP = {
 				console.log(sectionOneOffset);
 			    $('html, body').animate({
 			        scrollTop: $(".section__two").offset().top + 2
-			    }, 500);
-			}, 2000 );
+			    }, 700);
+			}, 500 );
 		});
 	}
 }
