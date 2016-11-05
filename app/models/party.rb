@@ -24,5 +24,9 @@ class Party < ActiveRecord::Base
   			return "English"
   		end
   	end
+
+  	def someone_is_attending?
+  		guests = self.guests
+  	end
 end
 

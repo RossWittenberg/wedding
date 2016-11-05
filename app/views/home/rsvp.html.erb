@@ -167,7 +167,7 @@
 							<p class="body__text wide text__align--center navy__text smaller">	
 								COME A FEW DAYS EARLY,  STAY A FEW DAYS POST, OR BOTH!
 								</p>
-							<p class="section__four--content text__align--center navy__text margin__top--40">
+							<p class="section__four--content text__align--center navy__text ">
 								The wedding will be held at <a target="_blank" class="link" href="http://google.com">Mosteiro de Amares</a> on, July 3, 2017. The closest airport to the venue is Oporto. As an alternative, you can fly into Lisbon and venture up via car or train. Regardless of which airport you choose, we recommend renting a car to facilitate your adventure! If you prefer, there are also convenient bus options available. Additional information re: pre/post festivities, accomodations, transportation, and more coming soon&mdash;stay tuned!
 							</p>
 						</div>	
@@ -183,12 +183,11 @@
 			YOUR DETAILS
 		</p>
 		<div class="relative margin__top--40">
-			<% first_guest = @party.guests.first %>
-			<%= simple_form_for first_guest,
-				url: guest_rsvp_update_path(first_guest), 
+			<%= simple_form_for @party,
+				url: party_rsvp_update_path(@party), 
 				method: 'put' do |f| %>
-				<div class="form-inputs">
-					<div class="row">
+			    <div class="row">
+					<div class="form-inputs">
 					    <div class="col-lg-12 col-md-12 col-sm-12">
 					    	<%= f.input :street_address_line_1, placeholder: "Street Address (Line 1)", label: false %>
 					    </div>
@@ -210,30 +209,19 @@
 				    	<div class="col-lg-4 col-md-12 col-sm-12">
 					    	<%= f.input :phone_number, label: false, placeholder: "Phone Number" %>
 					    </div>
-					</div>    
-				</div>
-			<% end %>
-		</div>	
-		<%= simple_form_for @party,
-			url: party_rsvp_update_path(@party), 
-			method: 'put' do |f| %>
-		    <div class="row">
-		    	<div class="col-lg-12 col-md-12 col-sm-12">
-					<div class="form-inputs">
-						<%= f.input :notes, label: false, input_html: { class: 'textarea' },placeholder: ("Leave us a note&mdash;let us know if there is anything we should be aware of&mdash;e.g. dietary restrictions, etc.	").html_safe %>
+					    <div class="col-lg-12 col-md-12 col-sm-12">
+							<%= f.input :notes, label: false, input_html: { class: 'textarea' },placeholder: ("Leave us a note&mdash;let us know if there is anything we should be aware of&mdash;e.g. dietary restrictions, etc.	").html_safe %>
+						</div>	
+						<div class="col-lg-12 col-md-12 col-sm-12">	
+							<div class="submit__button--container">
+								<input type="submit" class="submit__button" value="SUBMIT">
+								</input>
+							</div>
+						</div>
 					</div>
 		    	</div>	
-		    </div>	
-		<% end %>
-		<div class="row">
-			<div class="col-lg-12 col-md-12 col-sm-12">	
-				<div class="submit__button--container">
-					<button class="submit__button">
-						SUBMIT						
-					</button>
-				</div>
-			</div>
-		</div>
+			<% end %>
+		</div>	
 	</div>	
 </div>
 <div class="section__five">

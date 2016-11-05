@@ -38,14 +38,19 @@ var RSVP = {
 	displayLogo: function(){
 		$('.header__name--wrapper.rsvp').fadeIn(800, function() {
 			var sectionOneOffset = 200;
-			setTimeout( function(){
-				console.log(sectionOneOffset);
-			    $('html, body').animate({
-			        scrollTop: $(".section__two").offset().top + 2
-			    }, 700);
-			}, 500 );
+			if ( $(window).scrollTop() == 0 ){
+
+				setTimeout( function(){
+					console.log(sectionOneOffset);
+				    $('html, body').animate({
+				        scrollTop: $(".section__two").offset().top + 2
+				    }, 700);
+				}, 500 );
+			};	
 		});
 		$('.header__name--wrapper.home').fadeIn(800);
+		$('.header__thank-you--wrapper').fadeIn(800);
+
 	}
 }
 

@@ -15,7 +15,7 @@ class PartiesController < ApplicationController
   end
 
   def rsvp_success
-    
+    @party = Party.find params[:party_id]
   end
 
   # GET /parties
