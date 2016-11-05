@@ -28,5 +28,43 @@ class Party < ActiveRecord::Base
   	def someone_is_attending?
   		guests = self.guests
   	end
+
+  	def self.set_custom_greeting
+		self.all.each do |party|
+			adult_guests = party.guests.select { |guest| guest.is_child? == false }
+			if party.language == "Portuguese"
+				greeting_string = []
+				adult_guests.each_with_index do |guest, i|	
+					if i == 0	
+						greeting_string << "HOLA " 
+					end	
+						greeting_string << guest.first_name.upcase + " "
+					if i == 0 && adult_guests.count > 1
+						greeting_string << "& " 
+					end
+				end
+				greeting_string = greeting_string*""
+				party.update({
+					custom_greeting: (greeting_string).chomp(" ") + "!"
+				})
+			else
+				greeting_string = []
+				adult_guests.each_with_index do |guest, i|	
+					if i == 0	
+						greeting_string << "HI " 
+					end	
+						greeting_string << guest.first_name.upcase + " "
+					if i == 0 && adult_guests.count > 1
+						greeting_string << "& " 
+					end
+				end	
+				greeting_string = (greeting_string*"").chomp(" ") + "!"
+
+				party.update({
+					custom_greeting: greeting_string
+				})
+			end
+		end
+  	end
 end
 
