@@ -1,37 +1,37 @@
-<%- if @party %>	
-	<div class="rsvp__header">
-		<div class="table__wrapper dark-blue__blackground">
-			<div class="table__inner">
-				<div class="hidden header__name--wrapper rsvp white__border">
-					<div class="table__wrapper dark-blue__blackground">
-						<div class="table__inner">
-							<div class="margin__top--10 names__header text__align--center white__text">
-								<span class="names__header">
-									R
-								</span>
-								<span class="names__header plus">
-									+
-								</span>
-								<span class="names__header right">
-								 	W
-								 </span>
-								 <p class="margin__top--10 text__align--center section__four--content navy__text smaller">
-								 	July 3, 2017
-								 </p>
-							</div>
+<div class="rsvp__header">
+	<div class="table__wrapper dark-blue__blackground">
+		<div class="table__inner">
+			<div class="hidden header__name--wrapper rsvp white__border">
+				<div class="table__wrapper dark-blue__blackground">
+					<div class="table__inner">
+						<div class="margin__top--10 names__header text__align--center white__text">
+							<span class="names__header">
+								R
+							</span>
+							<span class="names__header plus">
+								+
+							</span>
+							<span class="names__header right">
+							 	W
+							 </span>
+							 <p class="margin__top--10 text__align--center section__four--content navy__text smaller">
+							 	July 3, 2017
+							 </p>
 						</div>
-					</div>		
-				</div>	
-			</div>
+					</div>
+				</div>		
+			</div>	
 		</div>
 	</div>
+</div>
+<%- if @party %>	
 	<div class="section__two container">
 		<div class="table__wrapper">
 			<div class="table__inner">		
 				<% if @party %>
 					<% adult_guests = @party.guests.select { |guest| guest.is_child? == false }  %>
 						<h2 class="invitee__names--header text__align--center">
-							<%- if @party.custom_greeting %>	
+							<%- if @party.custom_greeting && @party.custom_greeting.present? %>	
 								<%= @party.custom_greeting %>
 							<%- else %>
 								<% adult_guests.each_with_index do |guest, i| %>
@@ -183,46 +183,7 @@
 			<p class="body__text text__align--center bigger">
 				YOUR DETAILS
 			</p>
-			<div class="relative margin__top--40">
-				<%= simple_form_for @party,
-					url: party_rsvp_update_path(@party), 
-					method: 'put' do |f| %>
-				    <div class="row">
-						<div class="form-inputs">
-						    <div class="col-lg-12 col-md-12 col-sm-12">
-						    	<%= f.input :street_address_line_1, placeholder: "Street Address (Line 1)", label: false %>
-						    </div>
-						    <div class="col-lg-12 col-md-12 col-sm-12">
-						    	<%= f.input :street_address_line_2, placeholder: "Street Address (Line 2)", label: false %>
-						    </div>
-					    	<div class="col-lg-4 col-md-12 col-sm-12">
-						    	<%= f.input :city, label: false, placeholder: "City" %>
-						    </div>
-					    	<div class="col-lg-4 col-md-12 col-sm-12">
-						    	<%= f.input :state, label: false, placeholder: "State" %>
-						    </div>
-					    	<div class="col-lg-4 col-md-12 col-sm-12">
-						    	<%= f.input :zip_code, placeholder: "Zip Code", label: false %>
-						    </div>
-					    	<div class="col-lg-8 col-md-12 col-sm-12">
-						    	<%= f.input :country, label: false, placeholder: "Country"%>
-						    </div>
-					    	<div class="col-lg-4 col-md-12 col-sm-12">
-						    	<%= f.input :phone_number, label: false, placeholder: "Phone Number" %>
-						    </div>
-						    <div class="col-lg-12 col-md-12 col-sm-12">
-								<%= f.input :notes, label: false, input_html: { class: 'textarea' },placeholder: ("Leave us a note&mdash;let us know if there is anything we should be aware of&mdash;e.g. dietary restrictions, etc.	").html_safe %>
-							</div>	
-							<div class="col-lg-12 col-md-12 col-sm-12">	
-								<div class="submit__button--container">
-									<input type="submit" class="submit__button" value="SUBMIT">
-									</input>
-								</div>
-							</div>
-						</div>
-			    	</div>	
-				<% end %>
-			</div>	
+
 		</div>	
 	</div>
 	<div class="section__five">
