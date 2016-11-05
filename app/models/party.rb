@@ -16,6 +16,13 @@ class Party < ActiveRecord::Base
 			})
 		end
   	end
-end
 
+  	def language
+  		if self.country == "AO" || self.country == "PT" || self.country == "BE"
+  			return "Portuguese"
+  		else
+  			return "English"
+  		end
+  	end
+end
 

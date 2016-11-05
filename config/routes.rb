@@ -13,9 +13,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-  get 'home/rsvp'
+  get 'rsvp', to: 'home#rsvp'
   
-  get 'home/export_for_mailchimp'
+  get 'export_for_mailchimp_english', to: 'home#export_for_mailchimp_english'
+  get 'export_for_mailchimp_portuguese', to: 'home#export_for_mailchimp_portuguese'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

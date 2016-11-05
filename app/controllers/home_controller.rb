@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-	layout "rsvp", :except => [:index]
+	layout "rsvp"
 
 	def index
 		
@@ -12,9 +12,15 @@ class HomeController < ApplicationController
 		end
 	end
 
-	def export_for_mailchimp
+	def export_for_mailchimp_english
 	    respond_to do |format|
-			format.csv { send_data Guest.to_csv_for_mailchimp_import }
+			format.csv { send_data Guest.to_csv_for_mailchimp_import_english }
+	    end
+	end
+
+	def export_for_mailchimp_portuguese
+	    respond_to do |format|
+			format.csv { send_data Guest.to_csv_for_mailchimp_import_portuguese }
 	    end
 	end
 end

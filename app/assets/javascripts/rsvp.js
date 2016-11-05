@@ -36,7 +36,7 @@ var RSVP = {
 		$(statusContainer).append( $('<p>').text(successString).addClass('pressura--reg wide light-blue__text smaller') );
 	},
 	displayLogo: function(){
-		$('.header__name--wrapper').fadeIn(800, function() {
+		$('.header__name--wrapper.rsvp').fadeIn(800, function() {
 			var sectionOneOffset = 200;
 			setTimeout( function(){
 				console.log(sectionOneOffset);
@@ -45,6 +45,7 @@ var RSVP = {
 			    }, 700);
 			}, 500 );
 		});
+		$('.header__name--wrapper.home').fadeIn(800);
 	}
 }
 
