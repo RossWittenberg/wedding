@@ -55,14 +55,14 @@ Total number of kids coming: <%= @kids.count %><br>
         <th class="upcase">Status</th>
         <th class="upcase">Std sent</th>
         <th class="upcase">Invite sent</th> -->
-        <th colspan="3"></th>
+        <th colspan="2"></th>
       </tr>
     </thead>
 
     <tbody>
       <% @guests.each_with_index do |guest, i| %>
         <tr class="<% if guest.attending? %> green__text <% elsif guest.attending == nil %> yellow__text <% else %> red__text <% end %> <% if guest.is_child? %> kid <% end %>">
-          <td><%= i + 1 %></td>
+          <td><%= link_to 'Edit', edit_guest_path(guest) %></td>
           <td><%= guest.first_name %></td>
           <td><%= guest.last_name %></td>
           <td><%= guest.email %></td>
@@ -81,7 +81,6 @@ Total number of kids coming: <%= @kids.count %><br>
           <td><%= guest.is_child? %></td> -->
 
           <td><%= link_to 'Guest Info', guest %></td>
-          <td><%= link_to 'Edit', edit_guest_path(guest) %></td>
           <td><%= link_to 'Remove', guest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
