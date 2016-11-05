@@ -36,7 +36,7 @@ class Party < ActiveRecord::Base
 				greeting_string = []
 				adult_guests.each_with_index do |guest, i|	
 					if i == 0	
-						greeting_string << "HOLA " 
+						greeting_string << "OLA " 
 					end	
 						greeting_string << guest.first_name.upcase + " "
 					if i == 0 && adult_guests.count > 1
