@@ -30,7 +30,7 @@
 			<div class="table__inner">		
 				<% if @party %>
 					<% adult_guests = @party.guests.select { |guest| guest.is_child? == false }  %>
-						<h2 class="invitee__names--header text__align--center">
+						<h2 class="invitee__names--header mobile__line--height text__align--center">
 							<%- if @party.custom_greeting %>	
 								<%= @party.custom_greeting %>
 							<%- else %>
@@ -157,7 +157,7 @@
 				<% @guests.each_with_index do |guest, i| %>
 						<tr class="row__60">
 							<td class="col-xs-12 col-sm-12" >
-								<p class="relative z-one navy__text text__align--left rsvp__form--header">
+								<p class="relative z-one navy__text text__align--left rsvp__form--header mobile__line--height">
 									<%= (guest.first_name).upcase %>
 								</p>
 							</td>
