@@ -10,17 +10,19 @@ Total Parties Invited: <%= @parties.count %>
       <tr>
         <th class="upcase">Party Name</th>
         <!-- <th class="upcase">Accomodation Name</th>
-        <th class="upcase">Accomodation Address</th>
-        <th class="upcase">Notes</th> -->
+        <th class="upcase">Accomodation Address</th> -->
+        <th class="upcase">Greeting</th>
         <th colspan="3"></th>
       </tr>
     </thead>
 
     <tbody>
       <% @parties.each do |party| %>
-          <td><%= party.party_name %></td>
-          <td><%= link_to 'Party Details', party %></td>
+        <tr class="yellow__text">  
           <td><%= link_to 'Edit', edit_party_path(party) %></td>
+          <td><%= party.party_name %></td>
+          <td><%= party.custom_greeting %></td>
+          <td><%= link_to 'Party Details', party %></td>
           <td><%= link_to 'Remove', party, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>

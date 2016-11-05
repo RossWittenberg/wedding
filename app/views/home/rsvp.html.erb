@@ -30,13 +30,17 @@
 			<% if @party %>
 				<% adult_guests = @party.guests.select { |guest| guest.is_child? == false }  %>
 					<h2 class="invitee__names--header text__align--center">
-						<% adult_guests.each_with_index do |guest, i| %>
-							<%- if i == 0 %>	
-								HI 
-							<%- end %>	
-							<%= guest.first_name.upcase %> 
-							<%- if i == 0 && adult_guests.count > 1 %> 
-								&amp; 
+						<%- if @party.custom_greeting %>	
+							<%= @party.custom_greeting %>
+						<%- else %>
+							<% adult_guests.each_with_index do |guest, i| %>
+								<%- if i == 0 %>	
+									HI 
+								<%- end %>	
+								<%= guest.first_name.upcase %> 
+								<%- if i == 0 && adult_guests.count > 1 %> 
+									&amp; 
+								<%- end %>
 							<%- end %>
 						<% end %>!
 					</h2>
