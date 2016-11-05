@@ -37,10 +37,10 @@ Total number of kids coming: <%= @kids.count %><br>
           <%= sortable "Last name" %>
         </th>
         <th class="upcase">
-          <%= sortable "Email" %>
+          <%= sortable "Party Name" %>
         </th>
         <th class="upcase">
-          <%= sortable "Party Name" %>
+          <%= sortable "Email" %>
         </th>
         <th class="upcase">
           <%= sortable "Country" %>
@@ -65,8 +65,8 @@ Total number of kids coming: <%= @kids.count %><br>
           <td><%= link_to 'Edit', edit_guest_path(guest) %></td>
           <td><%= guest.first_name %></td>
           <td><%= guest.last_name %></td>
-          <td><%= guest.email %></td>
           <td><%= guest.party.party_name %></td>
+          <td><%= guest.email %></td>
           <td><%= guest.country %></td>
 
          <!--  <td><%= guest.street_address_line_1 %></td>
