@@ -6,10 +6,12 @@ class HomeController < ApplicationController
 	end
 
 	def rsvp
+		Rails.logger.info "#{ params }"
 		if params[:party_id]
 			@party = Party.includes(:guests).find(params[:party_id])
 			@guests = @party.guests.sort { |a,b| a.first_name.downcase <=> b.first_name.downcase }
 		end
+
 	end
 
 	def export_for_mailchimp_english
