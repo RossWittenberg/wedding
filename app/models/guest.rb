@@ -17,6 +17,10 @@ class Guest < ActiveRecord::Base
   		return "http://welandross.com/rsvp?party_id=#{self.party_id}"
   	end
 
+  	def rsvp_link_pt
+  		return "http://welandross.com/rsvp?party_id=#{self.party_id}&language=Portuguese"
+  	end
+
   	def self.portuguese
   		guests = []
   		Guest.all.each do |g|
@@ -54,7 +58,7 @@ class Guest < ActiveRecord::Base
 		end
 	end
 	def self.to_csv_for_mailchimp_import_portuguese
-		attributes = %w{ first_name last_name email rsvp_link } 
+		attributes = %w{ first_name last_name email rsvp_link_pt } 
 		CSV.generate( { headers: true } ) do |csv|
 		csv << attributes
 			self.portuguese.each do |guest|
@@ -63,7 +67,7 @@ class Guest < ActiveRecord::Base
 						guest.first_name || "N/A",
 						guest.last_name || "N/A",
 						guest.email || "N/A",
-						guest.rsvp_link || "N/A"
+						guest.rsvp_link_pt || "N/A"
 					]
 				end	
 			end 

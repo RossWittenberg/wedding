@@ -1,0 +1,279 @@
+<div class="rsvp__header">
+	<div class="table__wrapper dark-blue__blackground">
+		<div class="table__inner">
+			<div class="hidden header__name--wrapper rsvp white__border">
+				<div class="table__wrapper dark-blue__blackground">
+					<div class="table__inner">
+						<div class="margin__top--10 names__header text__align--center white__text">
+							<span class="names__header">
+								R
+							</span>
+							<span class="names__header plus">
+								+
+							</span>
+							<span class="names__header right">
+							 	W
+							 </span>
+							 <p class="margin__top--10 text__align--center section__four--content navy__text smaller">
+							 	July 3, 2017
+							 </p>
+						</div>
+					</div>
+				</div>		
+			</div>	
+		</div>
+	</div>
+</div>
+<%- if @party %>	
+	<div class="section__two container">
+		<div class="table__wrapper">
+			<div class="table__inner">		
+				<% if @party %>
+					<% adult_guests = @party.guests.select { |guest| guest.is_child? == false }  %>
+						<h2 class="invitee__names--header mobile__line--height text__align--center">
+							<%- if @party.custom_greeting %>	
+								<%= @party.custom_greeting %>
+							<%- else %>
+								<% adult_guests.each_with_index do |guest, i| %>
+									<%- if i == 0 %>	
+										HI 
+									<%- end %>	
+									<%= guest.first_name.upcase %> 
+									<%- if i == 0 && adult_guests.count > 1 %> 
+										&amp; 
+									<%- end %>
+								<%- end %>
+							<% end %>
+						</h2>
+				<% end %>
+				<p class="margin__top--20 margin__bottom--0 body__text text__align--center">
+					Because you have shared in our lives, brought us love, laughter and joy, we ask you to join us in PORTUGAL to celebrate our 'WE DO'!
+				</p>
+			</div>	
+		</div>			
+	</div>
+
+	<div class="section__three">
+		<div class="left__block" >
+			<div class="color__block navy__background">
+				<div class="table__wrapper">
+					<div class="table__inner">
+						<div class="portugal__text--wrapper">
+							<img src="<%= asset_path("dark-portugal.png") %>" class="portugal__outline">
+							<p class="relative z-one white__text text__align--center color__block--header">
+								<%= ("Portugal").upcase %>
+							</p>
+							<a target="_blank" href="http://google.com" class="hover__ligthen relative z-one white__text text__align--center pressura--reg pousada wide">
+								<%= ("pousada mosteiro de amares").upcase %>
+							</a>
+							<br>
+							<br>
+							<p class="relative z-one white__text text__align--center pressura--reg date__header wide">
+								<%= ("Monday, July").upcase %>
+							</p>
+							<div class="date__container">
+								<div class="skinny">
+									<span class="white__text text__align--center pressura--reg wide">
+										2<br>0
+									</span>
+								</div>
+								<div class="fat">
+									<span class="white__text text__align--center">
+										03
+									</span>
+								</div>
+								<div class="skinny">
+									<span class="white__text text__align--center pressura--reg wide">
+										1<br>7
+									</span>
+								</div>
+							</div>	
+						</div>
+						<div>
+							<img src="">
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>	
+		<div class="right__block">
+			
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<p class="body__text text__align--center margin__top--60 margin__bottom--0 bigger">
+				PORTUGUESE
+			</p>
+			<table class="hidden-sm-down rsvp__table">
+				<tbody>
+					<% @guests.each_with_index do |guest, i| %>
+						<tr class="row__60">
+							<td colspan="1">
+								<p class="relative z-one navy__text text__align--left rsvp__form--header">
+									<%= (guest.first_name).upcase %>
+								</p>
+							</td>
+							<td colspan="4">
+							</td>
+						</tr>
+						<tr class="rsvp__row row__80 <% if i === 0 %> no__top--border<% end %>">
+							<td class="border__right--navy rsvp__status--update__message--wrapper" colspan="1">
+								<div class="rsvp__status--update__message--inner-wrapper" data-guestID="<%= guest.id %>">
+									<p class="pressura--reg wide light-blue__text smaller">
+										<%= (guest.status_string).upcase %>
+									</p>	
+								</div>
+							</td>
+							<td class="padding__left--20">
+								<span data-guestID="<%= guest.id %>" data-row="<%= i %>" data-value="true" class="rsvp__radio--cirle <% if guest.attending? %> selected <% end %>">
+								</span>
+								<span class="rsvp__radio--cirle__label">
+									YES
+								</span>
+							</td>
+							<td class="padding__left--20">
+								<span data-guestID="<%= guest.id %>" data-row="<%= i %>" data-value="false" class="rsvp__radio--cirle deselected <% if guest.attending === false && guest.attending != nil %> selected <% end %>">
+									
+								</span>
+								<span class="rsvp__radio--cirle__label">
+									NO
+								</span>
+							</td>
+							<td class="padding__left--20">	
+								<span data-guestID="<%= guest.id %>" data-row="<%= i %>" data-value="nil" class="rsvp__radio--cirle deselected <% if guest.attending.blank? && guest.attending == nil %> selected <% end %>">
+									
+								</span>
+								<span class="rsvp__radio--cirle__label">
+									MAYBE
+								</span>
+							</td>
+						</tr>	
+					<% end %>
+				</tbody>
+			</table>
+			<table class="hidden-md-up rsvp__table">
+				<% @guests.each_with_index do |guest, i| %>
+						<tr class="row__60">
+							<td class="col-xs-12 col-sm-12" >
+								<p class="relative z-one navy__text text__align--left rsvp__form--header mobile__line--height">
+									<%= (guest.first_name).upcase %>
+								</p>
+							</td>
+						</tr>
+						<tr class="row__40 <% if i === 0 %> no__top--border<% end %>">
+							<td class="col-xs-12 col-sm-12 rsvp__status--update__message--wrapper-mobile" colspan="1">
+								<div class="rsvp__status--update__message--inner-wrapper" data-guestID="<%= guest.id %>">
+									<p class="pressura--reg wide light-blue__text smaller">
+										<%= (guest.status_string).upcase %>
+									</p>	
+								</div>
+							</td>
+						</tr>
+						<tr class="rsvp__row">	
+							<td class="col-xs-4 col-sm-4 padding__bottom--10">
+								<span data-guestID="<%= guest.id %>" data-row="<%= i %>" data-value="true" class="rsvp__radio--cirle <% if guest.attending? %> selected <% end %>">
+								</span>
+								<br>
+								<span class="rsvp__radio--cirle__label">
+									YES
+								</span>
+							</td>
+							<td class="col-xs-4 col-sm-4 padding__bottom--10">
+								<span data-guestID="<%= guest.id %>" data-row="<%= i %>" data-value="false" class="rsvp__radio--cirle deselected <% if guest.attending === false && guest.attending != nil %> selected <% end %>">
+									
+								</span>
+								<br>
+								<span class="rsvp__radio--cirle__label">
+									NO
+								</span>
+							</td>
+							<td class="col-xs-4 col-sm-4 padding__bottom--10">	
+								<span data-guestID="<%= guest.id %>" data-row="<%= i %>" data-value="nil" class="rsvp__radio--cirle deselected <% if guest.attending.blank? && guest.attending == nil %> selected <% end %>">
+									
+								</span>
+								<br>
+								<span class="rsvp__radio--cirle__label">
+									MAYBE
+								</span>
+							</td>
+						</tr>	
+					<% end %>
+			</table>
+		</div>	
+	</div>
+	<div class="section__four">
+		<div class="table__wrapper">
+			<div class="table__inner">
+				<div class="section__four--header__wrapper white__border">
+					<div class="table__wrapper">
+						<div class="table__inner">
+							<div class="section__four--inner-wrapper">
+								<p class="text__align--center navy__text section__four--header-text bigger">
+									<%= ("Make it an adventure!").upcase %>
+								</p>
+								<p class="body__text wide text__align--center navy__text smaller">	
+									COME A FEW DAYS EARLY,  STAY A FEW DAYS POST, OR BOTH!
+									</p>
+								<p class="section__four--content text__align--center navy__text ">
+									The wedding will be held at <a target="_blank" class="link" href="http://google.com">Mosteiro de Amares</a> on, July 3, 2017. The closest airport to the venue is Oporto. As an alternative, you can fly into Lisbon and venture up via car or train. Regardless of which airport you choose, we recommend renting a car to facilitate your adventure! If you prefer, there are also convenient bus options available. Additional information re: pre/post festivities, accomodations, transportation, and more coming soon&mdash;stay tuned!
+								</p>
+							</div>	
+						</div>
+					</div>		
+				</div>	
+			</div>
+		</div>
+	</div>
+	<div class="container margin__top--0 margin__bottom--0">
+		<div class="col-lg-12">
+			<p class="body__text text__align--center bigger">
+				YOUR DETAILS
+			</p>
+			<div class="relative margin__top--40">
+				<%= simple_form_for @party,
+					url: party_rsvp_update_path(@party), 
+					method: 'put' do |f| %>
+				    <div class="row">
+						<div class="form-inputs">
+						    <div class="col-lg-12 col-md-12 col-sm-12">
+						    	<%= f.input :street_address_line_1, placeholder: "Street Address (Line 1)", label: false %>
+						    </div>
+						    <div class="col-lg-12 col-md-12 col-sm-12">
+						    	<%= f.input :street_address_line_2, placeholder: "Street Address (Line 2)", label: false %>
+						    </div>
+					    	<div class="col-lg-4 col-md-12 col-sm-12">
+						    	<%= f.input :city, label: false, placeholder: "City" %>
+						    </div>
+					    	<div class="col-lg-4 col-md-12 col-sm-12">
+						    	<%= f.input :state, label: false, placeholder: "State" %>
+						    </div>
+					    	<div class="col-lg-4 col-md-12 col-sm-12">
+						    	<%= f.input :zip_code, placeholder: "Zip Code", label: false %>
+						    </div>
+					    	<div class="col-lg-8 col-md-12 col-sm-12">
+						    	<%= f.input :country, label: false, placeholder: "Country"%>
+						    </div>
+					    	<div class="col-lg-4 col-md-12 col-sm-12">
+						    	<%= f.input :phone_number, label: false, placeholder: "Phone Number" %>
+						    </div>
+						    <div class="col-lg-12 col-md-12 col-sm-12">
+								<%= f.input :notes, label: false, input_html: { class: 'textarea' },placeholder: ("Leave us a note&mdash;let us know if there is anything we should be aware of&mdash;e.g. dietary restrictions, etc.	").html_safe %>
+							</div>	
+							<div class="col-lg-12 col-md-12 col-sm-12">	
+								<div class="submit__button--container">
+									<input type="submit" class="submit__button" value="SUBMIT">
+									</input>
+								</div>
+							</div>
+						</div>
+			    	</div>	
+				<% end %>
+			</div>	
+		</div>	
+	</div>
+	<div class="section__five">
+
+	</div>
+<%- end %>	
