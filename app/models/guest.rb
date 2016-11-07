@@ -74,35 +74,35 @@ class Guest < ActiveRecord::Base
 		end
 	end
 
-	# def self.to_csv_for_pary_update
-	# 	attributes = %w{ id first_name last_name email street_address_line_1 street_address_line_2 city state zip_code country phone_number attending invite_sent is_child flight_number arrival departure party_id party_name } 
-	# 	CSV.generate( { headers: true } ) do |csv|
-	# 	csv << attributes
-	# 		self.all.each do |guest|
-	# 			csv << [ 
-	# 				guest.id,
-	# 				guest.first_name || "",
-	# 				guest.last_name || "",
-	# 				guest.email || "",
-	# 				guest.street_address_line_1 || "",
-	# 				guest.street_address_line_2 || "",
-	# 				guest.city || "",
-	# 				guest.state || "",
-	# 				guest.zip_code || "",
-	# 				guest.country || "",
-	# 				guest.phone_number || "",
-	# 				guest.attending || "",
-	# 				guest.invite_sent || "",
-	# 				guest.is_child || "",
-	# 				guest.flight_number || "",
-	# 				guest.arrival || "",
-	# 				guest.departure || "",
-	# 				guest.party_id || "",
-	# 				guest.party_name || ""
-	# 			]
-	# 		end 
-	# 	end
-	# end
+	def self.to_csv_for_pary_update
+		attributes = %w{ id first_name last_name email street_address_line_1 street_address_line_2 city state zip_code country phone_number attending invite_sent is_child flight_number arrival departure party_id party_name } 
+		CSV.generate( { headers: true } ) do |csv|
+		csv << attributes
+			self.all.each do |guest|
+				csv << [ 
+					guest.id,
+					guest.first_name || "",
+					guest.last_name || "",
+					guest.email || "",
+					guest.street_address_line_1 || "",
+					guest.street_address_line_2 || "",
+					guest.city || "",
+					guest.state || "",
+					guest.zip_code || "",
+					guest.country || "",
+					guest.phone_number || "",
+					guest.attending || "",
+					guest.invite_sent || "",
+					guest.is_child || "",
+					guest.flight_number || "",
+					guest.arrival || "",
+					guest.departure || "",
+					guest.party_id || "",
+					guest.party_name || ""
+				]
+			end 
+		end
+	end
 
   	def language
   		if self.country == "AO" || self.country == "PT" || self.country == "BE"
@@ -113,21 +113,30 @@ class Guest < ActiveRecord::Base
   	end
 end
 
-# p = Party.find_by_party_name "Marta"
-# Guest.update({
+# g = Guest.find_by_first_name "Marcos"
+# g.update({
 # 	party_id: p.id
 # })
 
+# p = Party.find_by_party_name "Dico"
 # p = Party.find_by_party_name "Dico"
 # Guest.update({
 # 	party_id: p.id
 # })
 
-# p = Party.find_by_party_name "Marcos"
-# Guest.update({
-# 	party_id: p.id
-# })
+# # p = Party.find_by_party_name "Marcos"
+# # Guest.update({
+# # 	party_id: p.id
+# # })
 
+
+# g = Guest.create({
+# 	first_name: "Dico",
+# 	last_name: "Fonseca",
+# 	email: "fredy_defcon1@yahoo.com.br",
+# 	party_name: "Dico"
+
+# })
 
 
 
