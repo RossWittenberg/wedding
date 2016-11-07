@@ -26,7 +26,7 @@
 
 csv_file_path = 'db/seeds/guests.csv'
 CSV.foreach(csv_file_path, :headers => true, encoding: "windows-1251:utf-8") do |row|
-  binding.pry
+  guest = Guest.find row["id"]
   guest.party = Party.find_by(party_name: guest.party_name)
   guest.save!
 end
