@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   get 'export_for_mailchimp_english', to: 'home#export_for_mailchimp_english'
   get 'export_for_mailchimp_portuguese', to: 'home#export_for_mailchimp_portuguese'
 
-
+  get 'to_csv_for_pary_update', to: 'home#to_csv_for_pary_update'
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

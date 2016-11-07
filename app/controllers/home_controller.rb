@@ -21,6 +21,12 @@ class HomeController < ApplicationController
 	    end
 	end
 
+	def to_csv_for_pary_update
+	    respond_to do |format|
+			format.csv { send_data Guest.to_csv_for_pary_update }
+	    end
+	end
+
 	def export_for_mailchimp_portuguese
 	    respond_to do |format|
 			format.csv { send_data Guest.to_csv_for_mailchimp_import_portuguese }

@@ -6,27 +6,27 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-require 'csv'
-Party.destroy_all
+# require 'csv'
+# Party.destroy_all
 
-parties_array = []
+# parties_array = []
 
-csv_file_path = 'db/seeds/guests.csv'
-CSV.foreach(csv_file_path, :headers => true, encoding: "windows-1251:utf-8") do |row|
-  parties_array.push row["party_name"]
-end
+# csv_file_path = 'db/seeds/guests.csv'
+# CSV.foreach(csv_file_path, :headers => true, encoding: "windows-1251:utf-8") do |row|
+#   parties_array.push row["party_name"]
+# end
 
-parties_array.uniq.each { |party| Party.create({ party_name: party }) }
+# parties_array.uniq.each { |party| Party.create({ party_name: party }) }
+
+# #####################################################
+
+# Guest.destroy_all
 
 #####################################################
 
-Guest.destroy_all
-
-#####################################################
-
 csv_file_path = 'db/seeds/guests.csv'
 CSV.foreach(csv_file_path, :headers => true, encoding: "windows-1251:utf-8") do |row|
-  guest = Guest.create!(row.to_hash)
+  binding.pry
   guest.party = Party.find_by(party_name: guest.party_name)
   guest.save!
 end
