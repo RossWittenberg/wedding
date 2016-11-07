@@ -113,31 +113,6 @@ class Guest < ActiveRecord::Base
   	end
 end
 
-# g = Guest.find_by_first_name "Marcos"
-# g.update({
-# 	party_id: p.id
-# })
-
-# p = Party.find_by_party_name "Dico"
-# p = Party.find_by_party_name "Dico"
-# Guest.update({
-# 	party_id: p.id
-# })
-
-# # p = Party.find_by_party_name "Marcos"
-# # Guest.update({
-# # 	party_id: p.id
-# # })
-
-
-# g = Guest.create({
-# 	first_name: "Dico",
-# 	last_name: "Fonseca",
-# 	email: "fredy_defcon1@yahoo.com.br",
-# 	party_name: "Dico"
-
-# })
-
 
 
 
