@@ -69,13 +69,3 @@ class Party < ActiveRecord::Base
 end
 
 
-p = Party.find_by_party_name "Eli Maiman"
-g = Guest.create ({
-	first_name: "Alex",
-	last_name: "Talks",
-	party_name: "Eli Maiman",
-	party_id: p.id
-})
-
-
-
