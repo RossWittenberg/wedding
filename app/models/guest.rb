@@ -18,7 +18,7 @@ class Guest < ActiveRecord::Base
   	end
 
   	def rsvp_link_pt
-  		return "http://welandross.com/rsvp?party_id=#{self.party_id}&language=Portuguese"
+  		return "http://welandross.com/rsvp?party_id=#{self.party_id}&language=pt"
   	end
 
   	def self.portuguese

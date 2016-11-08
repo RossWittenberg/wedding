@@ -10,7 +10,7 @@ class HomeController < ApplicationController
 			@party = Party.includes(:guests).find(params[:party_id])
 			@guests = @party.guests.sort { |a,b| a.first_name.downcase <=> b.first_name.downcase }
 		end
-		if params[:language] && params[:language] == "Portuguese"
+		if params[:language] && params[:language] == "pt" 
 			render "rsvp_pt"
 		end	
 	end
