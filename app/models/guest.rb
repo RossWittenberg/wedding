@@ -1,6 +1,20 @@
 class Guest < ActiveRecord::Base
 	belongs_to :party
+  	
   	def status_string
+  		if self.attending.blank? && self.attending == nil
+  			return "vou confirmar assim que possível."
+  		else 
+	  		case self.attending?
+	  		when true
+	  			return "esta festa por nada deste mundo!"
+	  		when false
+	  			return "tenho pena, mas o meu pensamento estará convosco!"
+	  		end	
+  		end
+  	end
+
+  	def status_string_pt
   		if self.attending.blank? && self.attending == nil
   			return "will let you know ASAP"
   		else 

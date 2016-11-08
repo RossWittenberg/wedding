@@ -493,10 +493,17 @@ p.section__four--header-text {
 	font-size: 20px;
 	letter-spacing: 3px;
 	line-height: 1.5;
+	&.pt {
+		max-width: 530px;
+	    margin: 20px auto 20px;
+		@media (max-width: 900px) {
+		    margin: 0 auto 20px;
+		}
+	}
 }
 
 .section__four--content {
-	margin-top: 40px;
+	margin-top: 20px;
 	@media (max-width: 900px){
 		margin-top: 0;
 	}
@@ -508,6 +515,9 @@ p.section__four--content {
 	line-height: 1.5;
 	position: relative;
     z-index: 1;
+	@media (max-width: 900px) {
+		padding-bottom: 20px;
+    }
     a {
     	color: $light-blue-medium;
     	transition: all .3s ease-in-out;
@@ -524,10 +534,10 @@ p.section__four--content {
 	max-width: calc(100% - 200px);
 	display: block;
 	margin: 0 auto;
+	padding: 20px;
 	@media (max-width: 900px) {
-		max-width: calc(100% - 60px);
+		max-width: calc(100% - 40px);
 	    display: block;
-        margin: 40px auto;
     	max-height: 100%;
 	}
 }
@@ -543,10 +553,12 @@ p.section__four--content {
 
 .section__four {
 	margin: 60px 0;
-	height: calc(100vh - 200px);
+	padding: 50px 0;
 	background: url(' <%= asset_path("medium-square-tile.jpg") %> ') repeat;
 	@media ( max-width: 900px) {
 		height: auto;
+		padding: 0;
+
 	}
 }
 

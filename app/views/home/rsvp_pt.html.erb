@@ -15,7 +15,7 @@
 							 	W
 							 </span>
 							 <p class="margin__top--10 text__align--center section__four--content navy__text smaller">
-							 	Julho 3, 2017
+							 	3 de Julho 2017
 							 </p>
 						</div>
 					</div>
@@ -36,7 +36,7 @@
 							<%- else %>
 								<% adult_guests.each_with_index do |guest, i| %>
 									<%- if i == 0 %>	
-										OLA 
+										OLÁ 
 									<%- end %>	
 									<%= guest.first_name.upcase %> 
 									<%- if i == 0 && adult_guests.count > 1 %> 
@@ -47,7 +47,7 @@
 						</h2>
 				<% end %>
 				<p class="margin__top--20 margin__bottom--0 body__text text__align--center">
-					Because you have shared in our lives, brought us love, laughter and joy, we ask you to join us in PORTUGAL to celebrate our 'WE DO'!
+					Como vocês fazem parte das nossas vidas, com amor, risadas e alegria, queremos convidar-vos para a celebração do nosso “SIM” em Portugal.
 				</p>
 			</div>	
 		</div>			
@@ -69,7 +69,7 @@
 							<br>
 							<br>
 							<p class="relative z-one white__text text__align--center pressura--reg date__header wide">
-								<%= ("Monday, July").upcase %>
+								<%= ("Segunda-feira").upcase %>
 							</p>
 							<div class="date__container">
 								<div class="skinny">
@@ -96,9 +96,9 @@
 				</div>	
 			</div>
 		</div>	
-		<div class="right__block">
+<!-- 		<div class="right__block">
 			
-		</div>
+		</div> -->
 	</div>
 
 	<div class="container">
@@ -130,7 +130,7 @@
 								<span data-guestID="<%= guest.id %>" data-row="<%= i %>" data-value="true" class="rsvp__radio--cirle <% if guest.attending? %> selected <% end %>">
 								</span>
 								<span class="rsvp__radio--cirle__label">
-									YES
+									SIM
 								</span>
 							</td>
 							<td class="padding__left--20">
@@ -138,7 +138,7 @@
 									
 								</span>
 								<span class="rsvp__radio--cirle__label">
-									NO
+									NÃO
 								</span>
 							</td>
 							<td class="padding__left--20">	
@@ -146,7 +146,7 @@
 									
 								</span>
 								<span class="rsvp__radio--cirle__label">
-									MAYBE
+									TALVEZ
 								</span>
 							</td>
 						</tr>	
@@ -177,7 +177,7 @@
 								</span>
 								<br>
 								<span class="rsvp__radio--cirle__label">
-									YES
+									SIM
 								</span>
 							</td>
 							<td class="col-xs-4 col-sm-4 padding__bottom--10">
@@ -186,7 +186,7 @@
 								</span>
 								<br>
 								<span class="rsvp__radio--cirle__label">
-									NO
+									NÃO
 								</span>
 							</td>
 							<td class="col-xs-4 col-sm-4 padding__bottom--10">	
@@ -195,7 +195,7 @@
 								</span>
 								<br>
 								<span class="rsvp__radio--cirle__label">
-									MAYBE
+									TALVEZ
 								</span>
 							</td>
 						</tr>	
@@ -210,14 +210,19 @@
 					<div class="table__wrapper">
 						<div class="table__inner">
 							<div class="section__four--inner-wrapper">
-								<p class="text__align--center navy__text section__four--header-text bigger">
-									<%= ("Make it an adventure!").upcase %>
+								<p class="text__align--center navy__text section__four--header-text bigger pt">
+									<%= ("Aproveitem esta oportunidade para fazer desta viajem uma aventura!").upcase %>
 								</p>
 								<p class="body__text wide text__align--center navy__text smaller">	
-									COME A FEW DAYS EARLY,  STAY A FEW DAYS POST, OR BOTH!
-									</p>
+									<%= ("Venham uns dias antes, fiquem por mais alguns dias depois, ou as duas coisas!").upcase %>
+								</p>
 								<p class="section__four--content text__align--center navy__text ">
-									The wedding will be held at <a target="_blank" class="link" href="https://www.google.com/maps/place/Pousada+Mosteiro+de+Amares/@41.659708,-8.2769177,17z/data=!3m1!4b1!4m5!3m4!1s0xd251d017ff1b975:0xa119c26c0a8ee36a!8m2!3d41.659704!4d-8.274729">Mosteiro de Amares</a> on, July 3, 2017. The closest airport to the venue is Oporto. As an alternative, you can fly into Lisbon and venture up via car or train. Regardless of which airport you choose, we recommend renting a car to facilitate your adventure! If you prefer, there are also convenient bus options available. Additional information re: pre/post festivities, accomodations, transportation, and more coming soon&mdash;stay tuned!
+									O casamento irá realizar-se no <a target="_blank" class="link" href="https://www.google.com/maps/place/Pousada+Mosteiro+de+Amares/@41.659708,-8.2769177,17z/data=!3m1!4b1!4m5!3m4!1s0xd251d017ff1b975:0xa119c26c0a8ee36a!8m2!3d41.659704!4d-8.274729">Mosteiro de Amares</a>, na tarde do dia 3 de Julho de 2017.
+									
+									Se viajarem de avião podem aterrar no Porto, ou em Lisboa, e continuar o percurso de comboio ou carro até ao Porto. Independentemente do aeroporto escolhido, recomendamos o aluguer de um carro, para facilitar a vossa aventura!
+
+									Caso prefiram viajar de autocarro, também existem alternativas viáveis.
+									Em breve terão mais informações sobre a ocasião, actividades para antes e depois do casamento, alojamento, transportes etc.&mdash;fiquem atentos!
 								</p>
 							</div>	
 						</div>

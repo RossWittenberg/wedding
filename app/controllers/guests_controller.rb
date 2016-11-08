@@ -14,7 +14,11 @@ class GuestsController < ApplicationController
       end 
       if @guest.update(guest_params)
         @rsvp_message = "#{@guest.first_name}'s status has been changed to "
-        @rsvp_status = @guest.status_string
+        if @guest.language == "Portuguese"
+          @rsvp_status = @guest.status_string_pt
+        else
+          @rsvp_status = @guest.status_string
+        end  
         format.json { render json: { rsvp_message: @rsvp_message, guest_id: @guest.id, rsvp_status: @rsvp_status } }
       else
         format.html { render :edit }
