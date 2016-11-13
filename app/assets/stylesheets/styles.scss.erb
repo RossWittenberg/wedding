@@ -126,15 +126,34 @@
 
 .section__three {
 	height: 430px;
+	@media screen and (max-width: 768px) {
+		height: 860px;
+	}
 }
 
 .left__block {
-	width: 100%;
+	width: 60%;
 	height: 100%;
 	position: relative;
 	display: inline-block;
 	@media screen and (max-width: 768px) {
 		width: 100%;
+		height: 50%;
+	}
+}
+
+.right__block {
+	width: 40%;
+	height: 100%;
+	position: relative;
+	display: inline-block;
+	float: right;
+	background: url(' <%= asset_path("w-r-2.jpg") %> ') no-repeat;
+	background-position: 50%;
+	background-size: cover;
+	@media screen and (max-width: 768px) {
+		width: 100%;
+		height: 50%;
 	}
 }
 
@@ -388,12 +407,6 @@ img.portugal__outline {
 }
 
 .right__block {
-	width: 40%;
-	height: 100%;
-	background-color: $light-blue;
-	float: right;
-	display: inline-block;
-	position: relative;
 	@media screen and (max-width: 768px) {
 		width: 100%;
 		margin-top: -7px;
