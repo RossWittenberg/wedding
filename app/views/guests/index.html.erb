@@ -3,11 +3,11 @@
 Total number of invitees: <%= @guests.count %><br>
 
 <% unless @yesses.blank? %>  
-  Total number of invitees who will not be attending: <%= @yesses.count %><br>
+  Total number of invitees who are attending: <%= @yesses.count %><br>
 <% end %>
 
 <% unless @nos.blank? %>  
-  Total number of invitees who will be attending: <%= @nos.count %><br>
+  Total number of invitees who will not be attending: <%= @nos.count %><br>
 <% end %>  
 
 Total number of invitess pending: <%= @pendings.count %><br>
