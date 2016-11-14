@@ -3,13 +3,13 @@ class Guest < ActiveRecord::Base
   	
   	def status_string
   		if self.attending.blank? && self.attending == nil
-  			return "vou confirmar assim que possível."
+  			return "vou confirmar assim que possivel."
   		else 
 	  		case self.attending?
 	  		when true
-	  			return "esta festa por nada deste mundo!"
+	  			return "nao perderia esta festa por nada deste mundo!"
 	  		when false
-	  			return "tenho pena, mas o meu pensamento estará convosco!"
+	  			return "estarei convosco em pensamento"
 	  		end	
   		end
   	end

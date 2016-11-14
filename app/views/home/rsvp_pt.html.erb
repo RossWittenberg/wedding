@@ -96,9 +96,9 @@
 				</div>	
 			</div>
 		</div>	
-<!-- 		<div class="right__block">
+		<div class="right__block">
 			
-		</div> -->
+		</div>
 	</div>
 
 	<div class="container">
@@ -222,7 +222,7 @@
 									Se viajarem de avião podem aterrar no Porto, ou em Lisboa, e continuar o percurso de comboio ou carro até ao Porto. Independentemente do aeroporto escolhido, recomendamos o aluguer de um carro, para facilitar a vossa aventura!
 
 									Caso prefiram viajar de autocarro, também existem alternativas viáveis.
-									Em breve terão mais informações sobre a ocasião, actividades para antes e depois do casamento, alojamento, transportes etc.&mdash;fiquem atentos!
+									Em breve terão mais informações sobre a ocasião, actividades para antes e depois do casamento, alojamento, transportes etc. Fiquem atentos!
 								</p>
 							</div>	
 						</div>
@@ -243,32 +243,23 @@
 				    <div class="row">
 						<div class="form-inputs">
 						    <div class="col-lg-12 col-md-12 col-sm-12">
-						    	<%= f.input :street_address_line_1, placeholder: "Street Address (Line 1)", label: false %>
-						    </div>
-						    <div class="col-lg-12 col-md-12 col-sm-12">
-						    	<%= f.input :street_address_line_2, placeholder: "Street Address (Line 2)", label: false %>
-						    </div>
-					    	<div class="col-lg-4 col-md-12 col-sm-12">
-						    	<%= f.input :city, label: false, placeholder: "City" %>
-						    </div>
-					    	<div class="col-lg-4 col-md-12 col-sm-12">
-						    	<%= f.input :state, label: false, placeholder: "State" %>
-						    </div>
-					    	<div class="col-lg-4 col-md-12 col-sm-12">
-						    	<%= f.input :zip_code, placeholder: "Zip Code", label: false %>
+						    	<%= f.input :street_address_line_1, placeholder: "Morada", label: false %>
+						    </div>					    	
+					    	<div class="col-lg-12 col-md-12 col-sm-12">
+						    	<%= f.input :zip_code, placeholder: "Código Postal e Cidade", label: false %>
 						    </div>
 					    	<div class="col-lg-8 col-md-12 col-sm-12">
-						    	<%= f.input :country, label: false, placeholder: "Country"%>
+						    	<%= f.input :country, label: false, placeholder: "País"%>
 						    </div>
 					    	<div class="col-lg-4 col-md-12 col-sm-12">
-						    	<%= f.input :phone_number, label: false, placeholder: "Phone Number" %>
+						    	<%= f.input :phone_number, label: false, placeholder: "Telefone" %>
 						    </div>
 						    <div class="col-lg-12 col-md-12 col-sm-12">
-								<%= f.input :notes, label: false, input_html: { class: 'textarea' },placeholder: ("Leave us a note&mdash;let us know if there is anything we should be aware of&mdash;e.g. dietary restrictions, etc.	").html_safe %>
+								<%= f.input :notes, label: false, input_html: { class: 'textarea' },placeholder: ("Notas").html_safe %>
 							</div>	
 							<div class="col-lg-12 col-md-12 col-sm-12">	
 								<div class="submit__button--container">
-									<input type="submit" class="submit__button" value="SUBMIT">
+									<input type="submit" class="submit__button" value="Enviar">
 									</input>
 								</div>
 							</div>
