@@ -3,14 +3,16 @@
 Total number of invitees: <%= @guests.count %><br>
 
 <% unless @yesses.blank? %>  
-  Total number of invitees who are attending:  <%= @yesses.count %><br>
+  Total number of invitees who are attending: <%= @yesses.count %><br>
 <% end %>
 
-<% unless @nos.blank? %>  
+<% unless @nos.blank? %> 
   Total number of invitees who will not be attending: <%= @nos.count %><br>
 <% end %>  
 
-Total number of invitess pending: <%= @pendings.count %><br>
+<% unless @pendings.blank? %> 
+  Total number of invitess pending: <%= @pendings.count %><br>
+<% end %> 
 
 Total number of guests invited from USA: <%= @americans.count %><br>
 Total number of guests invited from Angola: <%= @angolans.count %><br>
@@ -20,7 +22,7 @@ Total number of guests invited from Denmark: <%= @danish.count %><br>
 Total number of guests invited from Australia: <%= @australians.count %><br>
 Total number of guests invited from Belgium: <%= @belgians.count %><br>
 Total number of guests invited from Italy: <%= @italians.count %><br>
-Total number of kids coming: <%= @kids.count %><br>
+Total number of kids invited: <%= @kids.count %><br>
 <h1>Listing Guests</h1>
 
 <div class="guests__wrapper">
