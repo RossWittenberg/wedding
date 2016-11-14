@@ -1,7 +1,7 @@
 class Guest < ActiveRecord::Base
 	belongs_to :party
   	
-  	def status_string
+  	def status_string_pt
   		if self.attending.blank? && self.attending == nil
   			return "vou confirmar assim que possivel."
   		else 
@@ -14,7 +14,7 @@ class Guest < ActiveRecord::Base
   		end
   	end
 
-  	def status_string_pt
+  	def status_string
   		if self.attending.blank? && self.attending == nil
   			return "will let you know ASAP"
   		else 
