@@ -1,8 +1,32 @@
 class HomeController < ApplicationController
 	layout "rsvp"
-
 	def index
-		
+
+	end
+	
+	def english
+	end
+
+	def portuguese
+	end
+
+	def look_up_by_email
+		if params[:email_address]
+			@guest = Guest.find_by email: params[:email_address]
+			if @guest
+				@language = @guest.language
+				if @language == "English"
+					@lang_url = "en"
+				else
+					@lang_url = "pt"
+				end
+				@party = @guest.party
+				redirect_to "/rsvp?party_id=#{@party.id}&language=#{@lang_url}"
+			else
+				@error = "Oops! Try again! / "
+				render json: {error: @error}
+			end
+		end
 	end
 
 	def rsvp
@@ -33,3 +57,19 @@ class HomeController < ApplicationController
 	    end
 	end
 end
+
+
+g = Guest.create({
+	email: "mina.li@camutogroup.com",
+	first_name: "Lina",
+	last_name: "",
+	country: "US",
+	party: p,
+	party_name: p.party_name
+})
+
+p = Party.create({
+	party_name: "Lina",
+	country: "US"
+})
+

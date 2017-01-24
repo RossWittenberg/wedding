@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'rsvp', to: 'home#rsvp'
-  
+  get 'english', to: 'home#english'
+  get 'portuguese', to: 'home#portuguese'
+  post 'look-up-by-email', to: 'home#look_up_by_email'
+
   get 'export_for_mailchimp_english', to: 'home#export_for_mailchimp_english'
   get 'export_for_mailchimp_portuguese', to: 'home#export_for_mailchimp_portuguese'
 

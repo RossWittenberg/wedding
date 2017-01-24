@@ -1,4 +1,4 @@
-var RSVP = {
+var HOME = {
 	addListeners: function(){
 		console.log("RSVP js loaded");
 		$('.rsvp__radio--cirle').click(function(event) {
@@ -11,29 +11,29 @@ var RSVP = {
 			var guestID = $(selectedCircle).data('guestid');
 			RSVP.updateAttendenceStatus(selectedCircleVal, guestID);
 		});
-	},
-	updateAttendenceStatus: function(value, guestID) {
-		console.log(value);
-		$.ajax({
-			url: '/guests/'+ guestID +'/rsvp-update',
-			type: 'PUT',
-			data: {guest: 
-				{
-					attending: value
+		$('#emailLookUp').click(function(evt){
+			evt.preventDefault;
+			var data = $('form#lookUpByEmail').serialize();
+			$.ajax({
+				url: '/look-up-by-email',
+				type: 'POST',
+				data: data
+			})
+			.done(function(data) {
+				var errorMessageWrapper = $('#errorMessage');
+				if (data.error) {
+					(errorMessageWrapper).empty();
+					errorMessageWrapper.prepend(data.error);
+					$('#emailInput').addClass('error');
 				}
-			},
+			})
 		})
-		.always(function(data) {
-			if ( data.rsvp_message.length ) {
-				RSVP.renderRSVPSuccessMessage(data);
+		$(window).keydown(function(event){
+		    if(event.keyCode == 13) {
+		    	event.preventDefault();
+		    	return false;
 			}
-		});
-	},
-	renderRSVPSuccessMessage: function(data) {
-		var statusContainer = $('.rsvp__status--update__message--inner-wrapper[data-guestid='+ data.guest_id +']');
-		$(statusContainer).empty();
-		var successString = (data.rsvp_status).toUpperCase();
-		$(statusContainer).append( $('<p>').text(successString).addClass('pressura--reg wide light-blue__text smaller') );
+	  	});
 	},
 	displayLogo: function(){
 		$('.header__name--wrapper.rsvp').fadeIn(800, function() {
@@ -50,7 +50,6 @@ var RSVP = {
 		});
 		$('.header__name--wrapper.home').fadeIn(800);
 		$('.header__thank-you--wrapper').fadeIn(800);
-
 	}
 }
 
@@ -59,7 +58,7 @@ var RSVP = {
 * Copyright (c) 2013 Scott Robbin; Licensed MIT */
 
 $(document).on('turbolinks:load', function() {
-	RSVP.addListeners();
-	setTimeout( RSVP.displayLogo, 500 );
+	HOME.addListeners();
+	setTimeout( HOME.displayLogo, 500 );
 });
 
