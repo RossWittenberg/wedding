@@ -6,16 +6,6 @@
 var HOME = {
 	addListeners: function(){
 		console.log("HOME js loaded");
-		$('.rsvp__radio--cirle').click(function(event) {
-			var selectedCircle = $(this);
-			var selectedRow = $(this).data("row");
-			var circlesOfSelectedRow = $('span[data-row='+ $(this).data('row') +']');
-			$(circlesOfSelectedRow).removeClass('selected');
-			$(selectedCircle).addClass('selected');
-			var selectedCircleVal = $(selectedCircle).data('value');
-			var guestID = $(selectedCircle).data('guestid');
-			RSVP.updateAttendenceStatus(selectedCircleVal, guestID);
-		});
 		$('#emailLookUp').click(function(evt){
 			evt.preventDefault;
 			var data = $('form#lookUpByEmail').serialize();
@@ -41,8 +31,8 @@ var HOME = {
 	  	});
 	},
 	displayLogo: function(){
-		$('.header__name--wrapper.rsvp').fadeIn(800, function() {
-			var sectionOneOffset = 200;
+		$('.header__name--wrapper.home').fadeIn(800, function() {
+			// var sectionOneOffset = 200;
 			// if ( $(window).scrollTop() == 0 ){
 			// 	setTimeout( function(){
 			// 		console.log(sectionOneOffset);
