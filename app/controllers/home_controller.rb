@@ -23,7 +23,7 @@ class HomeController < ApplicationController
 				@party = @guest.party
 				redirect_to "/rsvp?party_id=#{@party.id}&language=#{@lang_url}"
 			else
-				@error = "Oops! Try again! / "
+				@error = "Oops! Try again! / Opa!"
 				render json: {error: @error}
 			end
 		end
@@ -57,19 +57,4 @@ class HomeController < ApplicationController
 	    end
 	end
 end
-
-
-g = Guest.create({
-	email: "mina.li@camutogroup.com",
-	first_name: "Lina",
-	last_name: "",
-	country: "US",
-	party: p,
-	party_name: p.party_name
-})
-
-p = Party.create({
-	party_name: "Lina",
-	country: "US"
-})
 

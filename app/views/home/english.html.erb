@@ -27,15 +27,42 @@
 <div class="section__two container">
 	<div class="table__wrapper">
 		<div class="table__inner">
+			<p class="rsvp-message navy__text">
+				Enter your email below to RSVP or update your attendance status.
+			</p>
 			<span class="error__message" id="errorMessage">
 				
 			</span>
 			<form id="lookUpByEmail" action="/look-up-by-email">
 				<input placeholder="Email" id="emailInput" type="text" name="email_address" class="form-control string optional">
-				<button class="submit__button" type="button" id="emailLookUp">
+				<button class="submit__button home-rsvp" type="button" id="emailLookUp">
 					RSVP
 				</button>
 			</form>
 		</div>	
 	</div>			
 </div>
+<div class="section__three home">
+	<div class="section__three--inner image col-lg-6 col-md-6 col-sm-12">
+	</div>
+	<div class="section__three--inner blue col-lg-6 col-md-6 col-sm-12">
+		<div class="table__wrapper">
+			<div class="table__inner">
+				<div class="our-story__text-wrapper">
+					<h3 class="our-story white__text text__align--center smaller">
+						OUR STORY
+					</h3>
+					<p class="white__text">
+						We have known each other since college--but only started dating once we re-met in NYC. We reconnected as two old friends, but the undeniable truth became evident after what was meant to be a 30 minute catch-up, turned into a 5 hour date and ended with a kiss after running through a broken fire hydrant in a street in Brooklyn. Almost exactly 5 years later, we have chosen to tie the knot and start our next chapter together. We thank all of our friends and family for loving and supporting us. We can't wait to celebrate our union with each and every one of you!
+					</p>
+				</div>	
+			</div>
+		</div>	
+	</div>
+</div>
+
+<script>
+	$(document).on('turbolinks:load', function() {
+		$('.section__three--inner.image').backstretch('<%= asset_path("photo-strips.png") %>');
+	});
+</script>
