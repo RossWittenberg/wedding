@@ -1,3 +1,22 @@
+<nav>
+	<ul>
+		<li>
+			<p>
+				our story
+			</p>
+		</li>
+		<li>
+			<p>
+				accomodations
+			</p>
+		</li>	
+		<li>
+			<p>
+				rsvp
+			</p>
+		</li>
+	</ul>
+</nav>
 <div class="rsvp__header">
 	<div class="table__wrapper dark-blue__blackground">
 		<div class="table__inner">
@@ -24,28 +43,10 @@
 		</div>
 	</div>
 </div>
-<div class="section__two container">
-	<div class="table__wrapper">
-		<div class="table__inner">
-			<p class="rsvp-message navy__text">
-				Enter your email below to RSVP or update your attendance status.
-			</p>
-			<span class="error__message" id="errorMessage">
-				
-			</span>
-			<form id="lookUpByEmail" action="/look-up-by-email">
-				<input placeholder="Email" id="emailInput" type="text" name="email_address" class="form-control string optional">
-				<button class="submit__button home-rsvp" type="button" id="emailLookUp">
-					RSVP
-				</button>
-			</form>
-		</div>	
-	</div>			
-</div>
-<div class="section__three home">
-	<div class="section__three--inner image col-lg-6 col-md-6 col-sm-12">
+<div class="section__two home">
+	<div class="section__two--inner image col-lg-6 col-md-6 col-sm-12">
 	</div>
-	<div class="section__three--inner blue col-lg-6 col-md-6 col-sm-12">
+	<div class="section__two--inner blue col-lg-6 col-md-6 col-sm-12">
 		<div class="table__wrapper">
 			<div class="table__inner">
 				<div class="our-story__text-wrapper">
@@ -53,7 +54,12 @@
 						OUR STORY
 					</h3>
 					<p class="white__text">
-						We have known each other since college--but only started dating once we re-met in NYC. We reconnected as two old friends, but the undeniable truth became evident after what was meant to be a 30 minute catch-up, turned into a 5 hour date and ended with a kiss after running through a broken fire hydrant in a street in Brooklyn. Almost exactly 5 years later, we have chosen to tie the knot and start our next chapter together. We thank all of our friends and family for loving and supporting us. We can't wait to celebrate our union with each and every one of you!
+						Boy SEES girl…13 years ago…but doesn’t approach and keeps to himself.
+						Girl sees boy doing backflips with his friends. Girl thinks boy is crazy.
+						8 years later boy finds out girl now lives in the same city. Boy would not make the same mistake again.
+						Boy writes girl a note and invites her on date. Boy and girl don’t know yet they would become husband and wife.
+						Boy has a hard time looking girl in the eyes. Girl thinks boy is bored, but boy was just shy.
+						Boy grows courage and looks girl in the eye and invites her to continue the evening. Girl and boy hop around the city. Boy makes girl laugh and also blush. Boy and girl make the evening an unexpected adventure. They run through an exploded fire hydrant and get sprayed. Boy kisses girl while the water sprinkles down on them. Girl likes boy. Boy likes girl. 5 beautiful years they play and dream and love. Boy and Girl want to grow old together. Boy and girl are getting married.
 					</p>
 				</div>	
 			</div>
@@ -62,11 +68,34 @@
 </div>
 
 <div class="section__four home">
-	
+	<div class="table__wrapper">
+		<div class="table__inner">
+			<div class="section__four--header__wrapper white__border home">
+				<div class="table__wrapper">
+					<div class="table__inner">
+						<div class="section__four--inner-wrapper">
+							<p class="rsvp-message navy__text">
+								Enter your email below to RSVP or update your attendance status.
+							</p>
+							<span class="error__message" id="errorMessage">
+								
+							</span>
+							<form id="lookUpByEmail" action="/look-up-by-email">
+								<input placeholder="Email" id="emailInput" type="text" name="email_address" class="form-control string optional">
+								<button class="submit__button home-rsvp" type="button" id="emailLookUp">
+									RSVP
+								</button>
+							</form>
+						</div>	
+					</div>
+				</div>		
+			</div>	
+		</div>
+	</div>
 </div>
 
 <script>
 	$(document).on('turbolinks:load', function() {
-		$('.section__three--inner.image').backstretch('<%= asset_path("photo-strips.png") %>');
+		$('.section__two--inner.image').backstretch('<%= asset_path("photo-strips.png") %>');
 	});
 </script>

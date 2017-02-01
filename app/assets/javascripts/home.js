@@ -5,7 +5,7 @@
 
 var HOME = {
 	addListeners: function(){
-		console.log("RSVP js loaded");
+		console.log("HOME js loaded");
 		$('.rsvp__radio--cirle').click(function(event) {
 			var selectedCircle = $(this);
 			var selectedRow = $(this).data("row");
@@ -44,17 +44,28 @@ var HOME = {
 		$('.header__name--wrapper.rsvp').fadeIn(800, function() {
 			var sectionOneOffset = 200;
 			if ( $(window).scrollTop() == 0 ){
-
 				setTimeout( function(){
 					console.log(sectionOneOffset);
 				    $('html, body').animate({
 				        scrollTop: $(".section__two").offset().top + 2
 				    }, 700);
+					setTimeout( HOME.displayNav, 800 );
 				}, 500 );
 			};	
 		});
 		$('.header__name--wrapper.home').fadeIn(800);
 		$('.header__thank-you--wrapper').fadeIn(800);
+	},
+	displayNav: function(){
+		$('nav').fadeIn(300);
+		$(window).scroll(function(event) {
+			/* Act on the event */
+			if ($(window).scrollTop() == 0) {
+				$('nav').fadeOut(300);
+			} else {
+				$('nav').css('display', 'block');
+			}
+		});	
 	}
 }
 
@@ -63,6 +74,5 @@ var HOME = {
 $(document).on('turbolinks:load', function() {
 	HOME.addListeners();
 	setTimeout( HOME.displayLogo, 500 );
-	
 });
 
