@@ -33,14 +33,13 @@ var HOME = {
 	displayLogoAndNav: function(){
 		$('.header__name--wrapper.home').fadeIn(800);
 		$('nav').fadeIn(800);
-		$(window).scroll(function(event) {
-			/* Act on the event */
-			if ($(window).scrollTop() == 0) {
-				$('nav').fadeOut(300);
-			} else {
-				$('nav').css('display', 'block');
-			}
-		});
+		// $(window).scroll(function(event) {
+		// 	if ($(window).scrollTop() == 0) {
+		// 		$('nav').fadeOut(300);
+		// 	} else {
+		// 		$('nav').css('display', 'block');
+		// 	}
+		// });
 	}
 }
 
