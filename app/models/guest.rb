@@ -125,6 +125,14 @@ class Guest < ActiveRecord::Base
   			return "English"
   		end
   	end
+
+  	def self.downcase_all
+  		self.all.each do |guest|
+  			if guest.email.present?
+  				guest.update({ email: guest.email.downcase })
+  			end	
+  		end
+  	end
 end
 
 
