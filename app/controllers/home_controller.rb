@@ -12,7 +12,7 @@ class HomeController < ApplicationController
 
 	def look_up_by_email
 		if params[:email_address]
-			@guest = Guest.find_by email: params[:email_address]
+			@guest = Guest.find_by email: params[:email_address].downcase
 			if @guest
 				@language = @guest.language
 				if @language == "English"
