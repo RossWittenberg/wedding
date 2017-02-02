@@ -54,12 +54,12 @@
 						OUR STORY
 					</h3>
 					<p class="white__text">
-						<!-- Boy SEES girl…13 years ago…but doesn’t approach and keeps to himself.
+						Boy sees girl…13 years ago…but doesn’t approach and keeps to himself.
 						Girl sees boy doing backflips with his friends. Girl thinks boy is crazy.
 						8 years later boy finds out girl now lives in the same city. Boy would not make the same mistake again.
 						Boy writes girl a note and invites her on date. Boy and girl don’t know yet they would become husband and wife.
 						Boy has a hard time looking girl in the eyes. Girl thinks boy is bored, but boy was just shy.
-						Boy grows courage and looks girl in the eye and invites her to continue the evening. Girl and boy hop around the city. Boy makes girl laugh and also blush. Boy and girl make the evening an unexpected adventure. They run through an exploded fire hydrant and get sprayed. Boy kisses girl while the water sprinkles down on them. Girl likes boy. Boy likes girl. 5 beautiful years they play and dream and love. Boy and Girl want to grow old together. Boy and girl are getting married. -->
+						Boy grows courage and looks girl in the eye and invites her to continue the evening. Girl and boy hop around the city. Boy makes girl laugh and also blush. Boy and girl make the evening an unexpected adventure. They run through an exploded fire hydrant and get sprayed. Boy kisses girl while the water sprinkles down on them. Girl likes boy. Boy likes girl. 5 beautiful years they play and dream and love. Boy and Girl want to grow old together. And, now boy and girl are getting married!
 					</p>
 				</div>	
 			</div>
@@ -67,7 +67,7 @@
 	</div>
 </div>
 
-<div class="home__section hotels container">
+<div class="home__section hotels">
 	<div class="table__wrapper mobile-off">
 			<div class="table__inner mobile-off">
 				<div class="hotels our-story__text-wrapper">
@@ -148,6 +148,34 @@
 	</div>
 </div>
 
+<div class="home__section map" id="amares-map" >
+	
+</div>
+
+<div class="home__section registry">
+	<div class="table__wrapper mobile-off">
+			<div class="table__inner mobile-off">
+				<div class="hotels our-story__text-wrapper">
+					<h3 class="our-story navy__text text__align--center smaller">
+						REGISTRY
+					</h3>
+					<p class="navy__text">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					</p>
+					<div class="registry__buttons--wrapper">
+						<a class="button left" href="">
+							HONEY FUND
+						</a>
+						<a class="button right" href="">
+							ZOLA REGISTRY
+						</a>
+					</div>
+				</div>	
+			</div>
+		</div>		
+	</div>
+</div>
+
 <div class="section__four home">
 	<div class="table__wrapper">
 		<div class="table__inner">
@@ -180,3 +208,136 @@
 		$('.section__two--inner.image').backstretch('<%= asset_path("photo-strips.png") %>');
 	});
 </script>
+<script>
+  function initMap() {
+    var amares = {lat: 41.659334, lng: -8.2706895};
+    var map = new google.maps.Map(document.getElementById('amares-map'), {
+		zoom: 10,
+		center: amares,
+		scrollwheel: false,
+		mapTypeControl: false,
+		scaleControl: false,
+		// draggable: false,
+		styles: [
+		    {
+		        "featureType": "administrative",
+		        "elementType": "labels.text",
+		        "stylers": [
+		            {
+		                "color": "#ff0000"
+		            },
+		            {
+		                "visibility": "simplified"
+		            }
+		        ]
+		    },
+		    {
+		        "featureType": "administrative",
+		        "elementType": "labels.text.fill",
+		        "stylers": [
+		            {
+		                "color": "#444444"
+		            }
+		        ]
+		    },
+		    {
+		        "featureType": "landscape",
+		        "elementType": "all",
+		        "stylers": [
+		            {
+		                "color": "#f2f2f2"
+		            }
+		        ]
+		    },
+		    {
+		        "featureType": "poi",
+		        "elementType": "all",
+		        "stylers": [
+		            {
+		                "visibility": "off"
+		            }
+		        ]
+		    },
+		    {
+		        "featureType": "road",
+		        "elementType": "all",
+		        "stylers": [
+		            {
+		                "saturation": -100
+		            },
+		            {
+		                "lightness": 45
+		            }
+		        ]
+		    },
+		    {
+		        "featureType": "road.highway",
+		        "elementType": "all",
+		        "stylers": [
+		            {
+		                "visibility": "simplified"
+		            }
+		        ]
+		    },
+		    {
+		        "featureType": "road.arterial",
+		        "elementType": "labels.icon",
+		        "stylers": [
+		            {
+		                "visibility": "off"
+		            }
+		        ]
+		    },
+		    {
+		        "featureType": "transit",
+		        "elementType": "all",
+		        "stylers": [
+		            {
+		                "visibility": "off"
+		            }
+		        ]
+		    },
+		    {
+		        "featureType": "water",
+		        "elementType": "all",
+		        "stylers": [
+		            {
+		                "color": "#46bcec"
+		            },
+		            {
+		                "visibility": "on"
+		            }
+		        ]
+		    },
+		    {
+		        "featureType": "water",
+		        "elementType": "geometry.fill",
+		        "stylers": [
+		            {
+		                "color": "#295785"
+		            },
+		            {
+		                "saturation": "0"
+		            }
+		        ]
+		    },
+		    {
+		        "featureType": "water",
+		        "elementType": "labels.text",
+		        "stylers": [
+		            {
+		                "color": "#ffffff"
+		            }
+		        ]
+		    }
+		]
+    });
+	var icon = '<%= asset_path("wedding-icon.png") %>';
+    var marker = new google.maps.Marker({
+      position: amares,
+      icon: icon,
+      map: map
+    });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCl9VrzyocMSOkqpdC2DvGjWZeDeCDf-S8&callback=initMap" async defer></script>

@@ -506,7 +506,8 @@ select.form-control {
 }
 
 button.submit__button,
-input.submit__button {
+input.submit__button,
+a.button {
 	border-radius: 0;
 	border: none;
 	width: 225px;
@@ -625,7 +626,7 @@ p.section__four--content {
 
 	}
 	&.home {
-		margin-bottom: 0;
+		margin: 0;
 	}
 }
 
@@ -669,11 +670,17 @@ p.rsvp-message {
     position: relative;
     z-index: 1;
     text-align: center;
+	@media screen and (max-width: 768px) {
+		font-size: 28px;
+	}
+
 }
 
 .section__two.home {
-	height: 780px;
-
+	height: 900px;
+	@media screen and (max-width: 768px) {
+		height: auto;
+	}
 	.section__two--inner {
 		height: 100%;
 		&.blue {
@@ -692,7 +699,7 @@ p.rsvp-message {
 
 .our-story__text-wrapper {
 	padding: 100px;
-	@media screen and (max-width: 768px) {
+	@media screen and (max-width: 1200px) {
 		padding: 40px;
 	}
 	h3 {
@@ -826,5 +833,39 @@ nav {
 	display: none;
 	&.active {
 		display: block;
+	}
+}
+
+.home__section.map {
+	width: 100%;
+	height: 600px;
+}
+
+.home__section.registry {
+	padding: 40px 0;
+	background-color: $white;
+	margin-bottom: 40px;
+}
+
+.registry__buttons--wrapper {
+	max-width: 600px;
+	margin: 0 auto;
+	a.button {
+		text-decoration: none;
+		&:hover,
+		&:active {
+			text-decoration: none;
+		}
+		padding-top: 12px;
+		margin: 20px auto;
+		@media screen and (min-width: 768px){
+			display: inline-block;
+			&.left {
+				float: left;
+			}
+			&.right {
+				float: right;
+			}
+		}	
 	}
 }
