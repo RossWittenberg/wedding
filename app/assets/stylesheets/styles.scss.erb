@@ -17,6 +17,10 @@
 	width: 100%;
 } 
 
+.navy__text {
+	color: $navy;
+}
+
 .green__text td {
 	border: solid 1px black;
 	background-color: green;
@@ -57,6 +61,7 @@
 	font-weight: 200;
 	font-size: 32px;
 	letter-spacing: 3px;
+
 }
 
 .thank-you__header {
@@ -687,6 +692,9 @@ p.rsvp-message {
 	    position: relative;
 	    z-index: 1;
 	    text-align: center;
+    	&.larger {
+			font-size: 24px;	
+		}
 	}
 }
 
@@ -694,7 +702,7 @@ nav {
 	height: 40px;
 	width: 100%;
 	position: fixed;
-	background-color: white;
+	background-color: rgba(255,255,255,.9);
 	z-index: 2;
 	display: none;
 	transition: all .3s ease-in-out;
@@ -716,4 +724,19 @@ nav {
 			}
 		}
 	}
+}
+
+.home__section.hotels {
+	min-height: 900px;
+	background-color: $white;
+	img.hotel-image {
+		max-width: 625px;
+		display: block;
+		margin: 40px auto;
+	}
+}
+
+.home__section.transport {
+	background-color: $navy;
+	min-height: 500px;
 }
