@@ -29,6 +29,10 @@ var HOME = {
 		    	return false;
 			}
 	  	});
+	  	$('.circle-indicator').click(function(evt) {
+	  		var circle = $(this);
+	  		HOME.toggleHotels(circle);
+	  	});
 	},
 	displayLogoAndNav: function(){
 		$('.header__name--wrapper.home').fadeIn(800);
@@ -40,6 +44,15 @@ var HOME = {
 		// 		$('nav').css('display', 'block');
 		// 	}
 		// });
+	},
+	toggleHotels: function(circle) {
+		if ( circle.hasClass('active')) {
+			return false;
+		} else {
+			$('.circle-indicator').toggleClass('active');
+			$('.hotel-image').toggleClass('active');
+			$('.hotel-text').toggleClass('active');
+		}
 	}
 }
 
