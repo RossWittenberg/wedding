@@ -148,9 +148,42 @@
 	</div>
 </div>
 
-<div class="home__section map" id="amares-map" >
-	
+<div class="mobile-map-info__outer-wrapper">
+	<div class="mobile map-info__wrapper">
+		<div class="our-story__text-wrapper no-pad">
+			<h3 class="venue our-story navy__text text__align--center smaller">
+				VENUE
+			</h3>
+			<p class="navy__text">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			</p>
+		</div>	
+		<div class="map-info__blue-border">
+			
+		</div>
+	</div>
+</div>	
+
+<div class="home__section map">
+	<div id="amares-map">
+		
+	</div>
+	<div class="map-info__wrapper">
+		<div class="our-story__text-wrapper no-pad">
+			<h3 class="venue our-story navy__text text__align--center smaller">
+				VENUE
+			</h3>
+			<p class="navy__text">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			</p>
+		</div>	
+		<div class="map-info__blue-border">
+			
+		</div>
+	</div>
 </div>
+
+
 
 <div class="home__section registry">
 	<div class="table__wrapper mobile-off">
@@ -212,7 +245,7 @@
   function initMap() {
     var amares = {lat: 41.659334, lng: -8.2706895};
     var map = new google.maps.Map(document.getElementById('amares-map'), {
-		zoom: 10,
+		zoom: 12,
 		center: amares,
 		scrollwheel: false,
 		mapTypeControl: false,

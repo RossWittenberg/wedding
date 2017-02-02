@@ -704,6 +704,9 @@ p.rsvp-message {
 	}
 	h3 {
 		margin-bottom: 40px;
+		&.venue {
+			margin-top: 40px;
+		}
 	}
 
 	p {
@@ -839,6 +842,13 @@ nav {
 .home__section.map {
 	width: 100%;
 	height: 600px;
+	position: relative;
+}
+
+#amares-map {
+	width: 100%;
+	height: 600px;
+	position: relative;	
 }
 
 .home__section.registry {
@@ -868,4 +878,52 @@ nav {
 			}
 		}	
 	}
+}
+
+.map-info__wrapper {
+	height: 500px;
+	width: 400px;
+	position: absolute;
+	left: 50px;
+	top: 50px;
+	background-color: $white;
+	padding: 40px;
+	@media screen and (max-width: 768px){ 
+		display: none;
+	}
+	&.mobile {
+		display: none;
+		@media screen and (max-width: 768px) {
+			display: block;
+			position: relative;
+			left: calc(50% - 200px);
+		}
+	}
+}
+
+.map-info__blue-border {
+	position: absolute;
+	height: 460px;
+	width: 360px;
+	left: 20px;
+	top: 20px;
+	background-color: transparent;
+	border: solid 2px $navy;
+	z-index: 3;
+}
+
+.no-pad {
+	padding: 0;
+}
+
+.mobile-map-info__outer-wrapper {
+	position: relative;
+	height: 600px;
+	width: 100%;
+	background: url(' <%= asset_path("medium-square-tile.jpg") %> ') repeat;
+	background-position: 50%;
+	@media screen and (min-width: 768px) {
+		display: none;
+	}
+
 }
