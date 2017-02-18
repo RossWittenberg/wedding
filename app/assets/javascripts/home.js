@@ -29,10 +29,27 @@ var HOME = {
 		    	return false;
 			}
 	  	});
-	  	$('.circle-indicator').click(function(evt) {
-	  		var circle = $(this);
-	  		HOME.toggleHotels(circle);
+	  	$('.hotel.circle-indicator').click(function(evt) {
+	  		var hotelCircle = $(this);
+	  		HOME.toggleHotels(hotelCircle);
 	  	});
+	  	$('.event.circle-indicator').click(function(evt) {
+	  		var eventCircle = $(this);
+	  		if ( $(window).width() > 768 ) {
+	  			HOME.toggleEvents(eventCircle);
+	  		}
+	  	});
+	  	$('.scroll-trigger').click(function(evt) {
+	  		var triggerTag = $(this).data('scroll-to');
+	  		HOME.scrollToLocation(triggerTag);
+	  	});
+	},
+	scrollToLocation: function(triggerTag){
+	  	console.log("scroll to tag: "+triggerTag);
+	  	var sectionHeader = $('.home__section.'+triggerTag);
+	  	var scrollOffset = $(sectionHeader).offset().top;
+	  	console.log("scroll to location: "+scrollOffset);
+	  	$('html body').animate({scrollTop: scrollOffset}, 700);
 	},
 	displayLogoAndNav: function(){
 		$('.header__name--wrapper.home').fadeIn(800);
@@ -45,13 +62,31 @@ var HOME = {
 		// 	}
 		// });
 	},
-	toggleHotels: function(circle) {
-		if ( circle.hasClass('active')) {
+	toggleHotels: function(hotelCircle) {
+		if ( hotelCircle.hasClass('active')) {
 			return false;
 		} else {
-			$('.circle-indicator').toggleClass('active');
+			$('.hotel.circle-indicator').toggleClass('active');
 			$('.hotel-image').toggleClass('active');
 			$('.hotel-text').toggleClass('active');
+		}
+	},
+	toggleEvents: function(eventCircle) {
+		if ( eventCircle.hasClass('active')) {
+			return false;
+		} else {
+			var eventName = $(eventCircle).data('img');
+			console.log(eventName);
+			var selectedImage = $('.event-image.'+eventName);
+			$('.event-image').removeClass('active');
+			selectedImage.addClass('active');
+			$('.event-text').removeClass('active');
+			$('.event.circle-indicator').removeClass('active');
+			eventCircle.addClass('active');
+			eventCircle.parent().find('.event-text').addClass('active');
+			var selectedEventDateTimeModule = $('.event-date-time-module.'+eventName);
+			$('.event-date-time-module').removeClass('active');
+			selectedEventDateTimeModule.addClass('active');
 		}
 	}
 }

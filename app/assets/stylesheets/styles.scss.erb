@@ -251,7 +251,7 @@
 }
 
 .pressura--reg {
-	font-family: "PressureReg";
+	font-family: "PressureReg" !important;
 	font-size: 18px;
 	&.wide {
 		letter-spacing: 8px;
@@ -324,6 +324,9 @@
 .date__container {
     width: 140px;
     margin: 0 auto;
+    &.event {
+    	width: 160px;
+    }
 }
 
 .skinny {
@@ -340,6 +343,9 @@
     font-family: "BigCaslon";
     font-size: 90px;
     top: -8px;
+    &.event {
+    	width: auto;
+    }
 }
 
 .portugal__text--wrapper {
@@ -416,6 +422,7 @@ img.portugal__outline {
 
 .rsvp__table {
 	width: 100%;
+	margin-bottom: 80px;
 }
 
 .rsvp__status--update__message--wrapper {
@@ -531,17 +538,19 @@ a.button {
 	&.home-rsvp {
 		margin: 40px auto 0;
 	}
+	.centered {
+		display: block;
+		margin: 0 auto;
+	}
 }
 
 .section__four--header__wrapper {
 	width: calc(100% - 100px);
-	height: calc(100% - 100px);
 	display: block;
 	background-color: $white;
 	margin: auto;
 	@media (max-width: 900px) {
 		width: calc(100% - 40px);
-	    height: calc(100% - 40px);
 	    display: block;
 	    background-color: #fefefe;
 	    margin: 20px auto;
@@ -736,7 +745,8 @@ nav {
 		margin: 0 auto;		
 		list-style: none;
 		li {
-			width: 32%;
+			cursor: pointer;
+			width: 16%;
 			display: inline-block;
 			margin-top: 12px;
 			p {
@@ -784,10 +794,10 @@ nav {
     top: -36px;
     background-color: $white;
     cursor: pointer;
-    &.option-one{
-    	left: calc(50% - 15px);
-    }
-    &.option-two {
+    &.option-one,
+    &.option-two,
+    &.option-three,
+ 	&.option-four{
     	left: calc(50% - 15px);
     }
     &.active {
@@ -813,9 +823,14 @@ nav {
     &.two {
 		float: right;
     }
+    &.event {
+    	width: calc(25% - 4px);
+    	float: left;
+    }
 }
 
-.hotel-image {
+.hotel-image,
+.event-image {
 	max-width: 600px;
 	display: none;
 	height: 360px;
@@ -830,12 +845,33 @@ nav {
 		background-position: 0%;
 		background-size: cover;
 	}
+	&.meet-and-greet {
+		background: url('<%= asset_path("mosteiro-amares.png") %>') no-repeat;
+		background-position: 50%;
+		background-size: cover;
+	}
+	&.wedding {
+		background: url('<%= asset_path("pousada-geres.png") %>') no-repeat;
+		background-position: 0%;
+		background-size: cover;
+	}
+	&.reception {
+		background: url('<%= asset_path("mosteiro-amares.png") %>') no-repeat;
+		background-position: 50%;
+		background-size: cover;
+	}
+	&.bbq {
+		background: url('<%= asset_path("pousada-geres.png") %>') no-repeat;
+		background-position: 50%;
+		background-size: cover;
+	}
 	&.active {
 		display: block;
 	}
 }
 
-.hotel-text {
+.hotel-text,
+.event-text {
 	display: none;
 	&.active {
 		display: block;
@@ -854,12 +890,6 @@ nav {
 	position: relative;	
 }
 
-.home__section.registry {
-	padding: 40px 0;
-	background-color: $white;
-	margin-bottom: 40px;
-}
-
 .registry__buttons--wrapper {
 	max-width: 600px;
 	margin: 0 auto;
@@ -870,16 +900,10 @@ nav {
 			text-decoration: none;
 		}
 		padding-top: 12px;
-		margin: 20px auto;
-		@media screen and (min-width: 768px){
-			display: inline-block;
-			&.left {
-				float: left;
-			}
-			&.right {
-				float: right;
-			}
-		}	
+		margin: 80px auto 20px;
+		&.event {
+			margin: 20px auto;
+		}
 	}
 }
 
@@ -929,4 +953,61 @@ nav {
 		display: none;
 	}
 
+}
+.vert-divider {
+	height: 150px;
+	width: 2px;
+	display: inline-block;
+	position: absolute;
+	&.navy {
+		background-color: $navy;
+	}
+	@media screen and (max-width: 768px) {
+		display: none;
+	}
+}
+.mobile-hor-divider {
+	height: 2px;
+	width: 300px;
+	display: block;
+	position: relative;
+	margin: 50px auto;
+	&.navy {
+		background-color: $navy;
+	}
+	@media screen and (min-width: 768px) {
+		display: none;
+	}
+}
+
+.event-date-time-module {
+	display: none;
+	&.active {
+		display: block;
+	}
+	@media screen and (max-width: 768px) {
+		display: block;
+	}
+}
+
+.event-date-text.larger {
+	font-size: 24px !important;
+}
+
+.events-details__wrapper {
+	@media screen and (max-width: 768px) {
+		display: none;
+	}
+}
+
+.desktop-only {
+	@media screen and (max-width: 768px) {
+		display: none !important;
+	}
+}	
+
+.mobile-only {
+	@media screen and (min-width: 768px) {
+		display: none !important;
+	}
 }

@@ -1,17 +1,32 @@
 <nav>
 	<ul>
 		<li>
-			<p>
+			<p data-scroll-to="our-story" class="scroll-trigger">
 				our story
 			</p>
 		</li>
 		<li>
-			<p>
-				accomodations
+			<p data-scroll-to="itinerary" class="scroll-trigger">
+				itinerary
 			</p>
 		</li>	
 		<li>
-			<p>
+			<p data-scroll-to="travel" class="scroll-trigger">
+				travel
+			</p>
+		</li>
+		<li>
+			<p data-scroll-to="accomodations" class="scroll-trigger">
+				accomodations
+			</p>
+		</li>
+		<li>
+			<p data-scroll-to="registry" class="scroll-trigger">
+				registry
+			</p>
+		</li>
+		<li>
+			<p data-scroll-to="rsvp" class="scroll-trigger">
 				rsvp
 			</p>
 		</li>
@@ -43,7 +58,7 @@
 		</div>
 	</div>
 </div>
-<div class="section__two home">
+<div class="home__section section section__two home row our-story">
 	<div class="section__two--inner image col-lg-6 col-md-6 col-sm-12">
 	</div>
 	<div class="section__two--inner blue col-lg-6 col-md-6 col-sm-12">
@@ -67,61 +82,40 @@
 	</div>
 </div>
 
-<div class="home__section hotels">
+<div class="home__section itinerary events row">
 	<div class="table__wrapper mobile-off">
 			<div class="table__inner mobile-off">
-				<div class="hotels our-story__text-wrapper">
+				<div class="events our-story__text-wrapper">
 					<h3 class="our-story navy__text text__align--center smaller">
-						ACCOMODATIONS
+						ITINERARY
 					</h3>
-					<p class="navy__text">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					<p class="navy__text desktop-only">
+						Desktop Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
 					</p>
-					<div class="amares hotel-image option-one active">
+					<p class="navy__text mobile-only">
+						Mobile Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+					</p>
+					<div class="desktop-only meet-and-greet event-image option-one active">
 					</div>
-					<div class="geres hotel-image option-one">
+					<div class="desktop-only wedding event-image option-two">
 					</div>
-					<div class="options__line hotels">
+					<div class="desktop-only reception event-image option-three">
 					</div>
-					<div class="options__wrapper">
-						<div class="option__wrapper one">
-							<div class="circle-indicator option-one active">
-								
-							</div>
-							<div class="option-text">
-								<p class="navy__text larger">
-									<a href="http://www.pousadas.pt/en/hotel/pousada-amares" target="_blank">
-										Pousada Mosteiro de Amares
-									</a>
-								</p>
-								<p class="hotel-text navy__text active">
-									AMARES ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-								</p>
-							</div>	
-						</div>
-						<div class="option__wrapper two">
-							<div class="circle-indicator option-two">
-								
-							</div>
-							<div class="option-text">
-								<p class="navy__text larger">
-									<a href="http://www.pousadas.pt/en/hotel/pousada-geres-canicada" target="_blank">
-										Pousada Geres<br>
-									</a>
-								</p>
-								<p class="hotel-text navy__text">
-									GERES ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-								</p>
-							</div>	
-						</div>
+					<div class="desktop-only bbq event-image option-four">
+					</div>
+					<div class="row margin__bottom--40">
+						<%= render partial: 'date-time-modules' %>	
 					</div>	
+					<div class="events-details__wrapper row margin__bottom--40">
+						<%= render partial: 'events-details' %>	
+					</div>
 				</div>	
 			</div>
 		</div>	
 	</div>
 </div>
 
-<div class="home__section transport">
+<div class="home__section transport travel">
 	<div class="table__wrapper">
 		<div class="table__inner">
 			<div class="our-story__text-wrapper">
@@ -148,6 +142,61 @@
 	</div>
 </div>
 
+<div class="home__section accomodations hotels row">
+	<div class="table__wrapper mobile-off">
+			<div class="table__inner mobile-off">
+				<div class="hotels our-story__text-wrapper">
+					<h3 class="our-story navy__text text__align--center smaller">
+						ACCOMODATIONS
+					</h3>
+					<p class="navy__text">
+						Rooms are reserved at two beautiful hotels in the Cávado River valley for our event! The first, Pousada Caniçada-Gerês, is where we will have the meet-and-greet cocktails on Sunday night, July 2nd. The second, Pousada Mosteiro de Amares, is where the wedding and reception will be Monday, July 3rd.
+						Transportation to and from Pousada Caniçada-Gerês will be provided for Monday. Rooms at both hotels are limited and will be available on a first-come-first-serve basis. To reserve your room, email graça.pinta@pestana.com. See below for more details (click the circles to learn more about each hotel).
+					</p>
+					<div class="amares hotel-image option-one active">
+					</div>
+					<div class="geres hotel-image option-one">
+					</div>
+					<div class="options__line hotels">
+					</div>
+					<div class="options__wrapper">
+						<div class="option__wrapper one">
+							<div class="circle-indicator hotel option-one active">
+								
+							</div>
+							<div class="option-text">
+								<p class="navy__text larger">
+									<a href="http://www.pousadas.pt/en/hotel/pousada-geres-canicada" target="_blank">
+										Pousada Geres<br>
+									</a>
+								</p>
+								<p class="hotel-text navy__text active">
+									GERES ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+								</p>
+							</div>	
+						</div>
+						<div class="option__wrapper two">
+							<div class="circle-indicator hotel option-two">
+								
+							</div>
+							<div class="option-text">
+								<p class="navy__text larger">
+									<a href="http://www.pousadas.pt/en/hotel/pousada-amares" target="_blank">
+										Pousada Mosteiro de Amares
+									</a>
+								</p>
+								<p class="hotel-text navy__text">
+									AMARES ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+								</p>
+							</div>	
+						</div>
+					</div>	
+				</div>	
+			</div>
+		</div>	
+	</div>
+</div>
+
 <div class="mobile-map-info__outer-wrapper">
 	<div class="mobile map-info__wrapper">
 		<div class="our-story__text-wrapper no-pad">
@@ -164,7 +213,7 @@
 	</div>
 </div>	
 
-<div class="home__section map">
+<div class="home__section map row">
 	<div id="amares-map">
 		
 	</div>
@@ -185,7 +234,7 @@
 
 
 
-<div class="home__section registry">
+<div class="home__section registry row">
 	<div class="table__wrapper mobile-off">
 			<div class="table__inner mobile-off">
 				<div class="hotels our-story__text-wrapper">
@@ -196,11 +245,8 @@
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 					</p>
 					<div class="registry__buttons--wrapper">
-						<a class="button left" href="">
-							HONEY FUND
-						</a>
-						<a class="button right" href="">
-							ZOLA REGISTRY
+						<a class="button centered" href="">
+							REGISTRY
 						</a>
 					</div>
 				</div>	
@@ -209,7 +255,7 @@
 	</div>
 </div>
 
-<div class="section__four home">
+<div class="home__section rsvp section__four home row">
 	<div class="table__wrapper">
 		<div class="table__inner">
 			<div class="section__four--header__wrapper white__border home">
