@@ -43,6 +43,10 @@ var HOME = {
 	  		var triggerTag = $(this).data('scroll-to');
 	  		HOME.scrollToLocation(triggerTag);
 	  	});
+	  	$('.story-trigger').click(function(evt) {
+	  		var trigger = $(this);
+	  		HOME.toggleStory(trigger);
+	  	});
 	},
 	scrollToLocation: function(triggerTag){
 	  	console.log("scroll to tag: "+triggerTag);
@@ -88,6 +92,14 @@ var HOME = {
 			$('.event-date-time-module').removeClass('active');
 			selectedEventDateTimeModule.addClass('active');
 		}
+	},
+	toggleStory: function(trigger) {
+		if ( trigger.hasClass('active')) {
+			return false;
+		} else {
+			$('.story').toggleClass('active');
+			$('.story-trigger').toggleClass('active');
+		}	
 	}
 }
 

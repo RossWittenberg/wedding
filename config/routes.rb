@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get 'export_for_mailchimp_portuguese', to: 'home#export_for_mailchimp_portuguese'
 
   get 'to_csv_for_pary_update', to: 'home#to_csv_for_pary_update'
+
+  get 'hotel-guest-list', to: 'home#hotel_guest_list'
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
