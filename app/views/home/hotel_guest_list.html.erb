@@ -1,0 +1,14 @@
+<div class="container">
+	<%- @parties.each do |party| %>
+		Party Name: <%= party.party_name %><br>
+		<% guests = party.guests %>
+		<%- guests.each do |guest| %>
+			<div class="indent-20">
+				<p class="<% if guest.attending? %> green__text <% elsif guest.attending == nil %> yellow__text <% else %> red__text <% end %> <% if guest.is_child? %> kid <% end %>">
+					<%= guest.first_name %> <%= guest.last_name%> 
+				</p> 
+			</div>	
+		<%- end %>
+	<hr>
+	<%-end%>
+</div>	

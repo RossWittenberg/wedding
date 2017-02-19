@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 	layout "rsvp"
 
 	def hotel_guest_list
-		@parties = Party.all.includes(:guests)
+		@parties = Party.all.includes(:guests).order :party_name
 	end
 
 	def index
