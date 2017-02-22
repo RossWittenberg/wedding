@@ -985,7 +985,7 @@ nav {
 	&.navy {
 		background-color: $navy;
 	}
-	@media screen and (min-width: 768px) {
+	@media screen and (min-width: 769px) {
 		display: none;
 	}
 }
@@ -1017,7 +1017,7 @@ nav {
 }	
 
 .mobile-only {
-	@media screen and (min-width: 768px) {
+	@media screen and (min-width: 769px) {
 		display: none !important;
 	}
 }
@@ -1088,3 +1088,22 @@ h3.event-header {
 	width: 100%;
 }
 
+a:hover {
+	background-color: inherit;
+}
+
+.airplane {
+	height: 80px;
+    width: 110px;
+	background: url(' <%= asset_path("airplane.png") %> ') no-repeat;
+	display: block;
+	margin: 40px auto 40px;
+}
+
+.car {
+	height: 80px;
+    width: 120px;
+	background: url(' <%= asset_path("car.png") %> ') no-repeat;
+	display: block;
+	margin: 40px auto 40px;
+}
