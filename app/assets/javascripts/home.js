@@ -47,6 +47,10 @@ var HOME = {
 	  		var trigger = $(this);
 	  		HOME.toggleStory(trigger);
 	  	});
+	  	$('.disabled').click(function(evt) {
+	  		evt.preventDefault();
+	  		return false;
+	  	});
 	},
 	scrollToLocation: function(triggerTag){
 	  	console.log("scroll to tag: "+triggerTag);
