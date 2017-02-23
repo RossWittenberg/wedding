@@ -9,19 +9,29 @@ var HOME = {
 		$('#emailLookUp').click(function(evt){
 			evt.preventDefault;
 			var data = $('form#lookUpByEmail').serialize();
-			$.ajax({
-				url: '/look-up-by-email',
-				type: 'POST',
-				data: data
-			})
-			.done(function(data) {
+			var inputVal = $('#emailInput').val();
+	  		if ( inputVal.length == 0) {
+	  			evt.preventDefault();
+	  			$('#emailInput').addClass('error');
 				var errorMessageWrapper = $('#errorMessage');
-				if (data.error) {
-					(errorMessageWrapper).empty();
-					errorMessageWrapper.prepend(data.error);
-					$('#emailInput').addClass('error');
-				}
-			})
+	  			(errorMessageWrapper).empty();
+				errorMessageWrapper.prepend( $('<p>').text('Please enter your email address.').addClass('red-letters'));
+	  			return false;
+	  		} else {
+				$.ajax({
+					url: '/look-up-by-email',
+					type: 'POST',
+					data: data
+				})
+				.done(function(data) {
+					var errorMessageWrapper = $('#errorMessage');
+					if (data.error) {
+						(errorMessageWrapper).empty();
+						errorMessageWrapper.prepend(data.error);
+						$('#emailInput').addClass('error');
+					}
+				})
+	  		}
 		})
 		$(window).keydown(function(event){
 		    if(event.keyCode == 13) {
