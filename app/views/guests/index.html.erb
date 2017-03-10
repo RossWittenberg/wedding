@@ -42,7 +42,13 @@ Total number of kids invited: <%= @kids.count %><br>
           <%= sortable "Party Name" %>
         </th>
         <th class="upcase">
+          <%= "Attending?" %>
+        </th>
+        <th class="upcase">
           <%= sortable "Email" %>
+        </th>
+        <th class="upcase">
+          <%= "Is Child?" %>
         </th>
         <th class="upcase">
           <%= sortable "Country" %>
@@ -64,11 +70,13 @@ Total number of kids invited: <%= @kids.count %><br>
     <tbody>
       <% @guests.each_with_index do |guest, i| %>
         <tr class="<% if guest.attending? %> green__text <% elsif guest.attending == nil %> yellow__text <% else %> red__text <% end %> <% if guest.is_child? %> kid <% end %>">
-          <td><%= link_to 'Edit', edit_guest_path(guest) %></td>
+          <td><%# link_to 'Edit', edit_guest_path(guest) %></td>
           <td><%= guest.first_name %></td>
           <td><%= guest.last_name %></td>
           <td><%= guest.party.party_name %></td>
+          <td><%= guest.attending %></td>
           <td><%= guest.email %></td>
+          <td><%= guest.is_child? %></td>
           <td><%= guest.country %></td>
 
          <!--  <td><%= guest.street_address_line_1 %></td>
@@ -82,8 +90,8 @@ Total number of kids invited: <%= @kids.count %><br>
           <td><%= guest.invite_sent? %></td>
           <td><%= guest.is_child? %></td> -->
 
-          <td><%= link_to 'Guest Info', guest %></td>
-          <td><%= link_to 'Remove', guest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%# link_to 'Guest Info', guest %></td>
+          <td><%# link_to 'Remove', guest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
