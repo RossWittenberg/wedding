@@ -6,6 +6,12 @@
 var HOME = {
 	addListeners: function(){
 		console.log("HOME js loaded");
+		
+  	$('.link-trigger').click(function(evt) {
+  		var linkTag = $(this).data('link-to');
+  		window.location.href = "/photos";
+  	});
+
 		$('#emailLookUp').click(function(evt){
 			evt.preventDefault;
 			var data = $('form#lookUpByEmail').serialize();
@@ -61,6 +67,7 @@ var HOME = {
 	  		evt.preventDefault();
 	  		return false;
 	  	});
+
 	},
 	scrollToLocation: function(triggerTag){
 	  	console.log("scroll to tag: "+triggerTag);

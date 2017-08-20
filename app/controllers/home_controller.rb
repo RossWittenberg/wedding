@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
 	layout "rsvp"
 
+	require 'flickr_fu'
+
 	def hotel_guest_list
 		@parties = Party.all.includes(:guests).order :party_name
 	end
